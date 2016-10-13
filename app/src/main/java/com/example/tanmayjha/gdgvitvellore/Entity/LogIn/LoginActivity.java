@@ -24,6 +24,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener,GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = LoginActivity.class.getSimpleName(); //returns name of the class
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ProgressDialog mProgressDialog;
 
     private SignInButton btnSignIn;
+    Intent toMainActivity=new Intent(this, MainActivity.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,12 +95,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             Intent toMainActivity=new Intent(this, MainActivity.class);
             toMainActivity.putExtra("personName",personName);
-            toMainActivity.putExtra("personEmail",personemail);
             toMainActivity.putExtra("personPhotoUrl",personPhotoUrl);
-
             Log.e(TAG, "Name: " + personName + ",Image: " + personPhotoUrl);
-
-
         }
     }
 
@@ -137,6 +135,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
             });
         }
+        startActivity(toMainActivity);
+        //Sending intent
     }
 
 
@@ -172,7 +172,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
-
     //TODO: Sign out and revoke access options have to be given
+    /*private void signOut(){
+        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(@NonNull Status status) {
+                        updateUI(false);
+                    }
+                }
+        );
+    }
 
+    private void revokeAccess(){
+        Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(@NonNull Status status) {
+                        updateUI(false);
+                    }
+                }
+        );
+    }
+    */
 }

@@ -22,7 +22,9 @@ import com.example.tanmayjha.gdgvitvellore.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    String personName="User";
+    //TODO: Get a default person url
+    String personPhotoUrl="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +51,14 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         Intent fromLogin=getIntent();
-        String personName=fromLogin.getStringExtra("personName");
-        String personPhotoUrl=fromLogin.getStringExtra("personPhotoUrl");
+        //To check null pointer exception
+        if(fromLogin.getStringExtra("personName")!= null||!fromLogin.getStringExtra("personName").isEmpty())
+            personName=fromLogin.getStringExtra("personName");
+        if(fromLogin.getStringExtra("personPhotoUrl")!=null||!fromLogin.getStringExtra("personPhotoUrl").isEmpty())
+            personPhotoUrl=fromLogin.getStringExtra("personPhotoUrl");
         TextView Name=(TextView)findViewById(R.id.person_name);
         ImageView personImage=(ImageView)findViewById(R.id.person_image);
-//        Name.setText(personName);
+        Name.setText(personName);
         //Glide.with(getApplicationContext()).load(personPhotoUrl).thumbnail(0.5f).crossFade().diskCacheStrategy(DiskCacheStrategy.ALL).into(personImage);
     }
 
