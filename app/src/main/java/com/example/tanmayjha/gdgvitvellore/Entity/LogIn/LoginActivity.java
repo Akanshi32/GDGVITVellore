@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -29,7 +30,7 @@ import com.google.android.gms.common.api.Status;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener,GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = LoginActivity.class.getSimpleName(); //returns name of the class
     private static final int RC_SIGN_IN = 007;
-
+    TextView skipThis;
     private GoogleApiClient mGoogleApiClient;
     private ProgressDialog mProgressDialog;
 
@@ -48,7 +49,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         btnSignIn = (SignInButton) findViewById(R.id.button_sign_in);
         btnSignIn.setOnClickListener(this);
-
+        skipThis=(TextView)findViewById(R.id.skip_this);
+        skipThis.setOnClickListener(this);
         //Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
@@ -162,6 +164,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.button_sign_in:
                 signIn();
                 break;
+            case R.id.skip_this:
+                Intent intent=new Intent(this,MainActivity.class);
+                startActivity(intent);
         }
     }
     //TODO: Sign out and revoke access options have to be given

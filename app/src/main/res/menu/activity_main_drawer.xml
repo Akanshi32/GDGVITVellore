@@ -3,26 +3,26 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/welcome"
             android:icon="@drawable/ic_menu_camera"
             android:title="Welcome" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/events"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Events" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/projects"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Projects" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/sponsors"
             android:icon="@drawable/ic_menu_manage"
             android:title="Sponsors" />
     </group>
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/about_us"
                 android:icon="@drawable/ic_menu_share"
                 android:title="About Us" />
             <item
@@ -30,7 +30,7 @@
                 android:icon="@drawable/ic_menu_gallery"
                 android:title="Contact Us"/>
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/faqs"
                 android:icon="@drawable/ic_menu_send"
                 android:title="FAQs" />
             <item
