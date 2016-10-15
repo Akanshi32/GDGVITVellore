@@ -2,6 +2,7 @@ package com.example.tanmayjha.gdgvitvellore.Entity.Navigation;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,19 +10,28 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.tanmayjha.gdgvitvellore.Entity.LogIn.LoginActivity;
 import com.example.tanmayjha.gdgvitvellore.R;
 
 import com.example.tanmayjha.gdgvitvellore.Entity.AboutUs.AboutUsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Feedback.FeedbackFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Welcome.WelcomeFragment;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener{
     String personName="User";
     //TODO: Get a default person url
     String personPhotoUrl="";
@@ -47,10 +57,12 @@ public class MainActivity extends AppCompatActivity
             personName=fromLogin.getStringExtra("personName");
         if(fromLogin.getStringExtra("personPhotoUrl")!=null||!fromLogin.getStringExtra("personPhotoUrl").isEmpty())
             personPhotoUrl=fromLogin.getStringExtra("personPhotoUrl");
-        TextView Name=(TextView)findViewById(R.id.person_name);
-        ImageView personImage=(ImageView)findViewById(R.id.person_image);
-        Name.setText(personName);
-        //Glide.with(getApplicationContext()).load(personPhotoUrl).thumbnail(0.5f).crossFade().diskCacheStrategy(DiskCacheStrategy.ALL).into(personImage);
+        Log.v("Person's name on MA",personName);
+        View hView =  navigationView.getHeaderView(0);
+        TextView name=(TextView)hView.findViewById(R.id.person_name);
+        ImageView personImage=(ImageView)hView.findViewById(R.id.person_image);
+        name.setText(personName);
+        Glide.with(getApplicationContext()).load(personPhotoUrl).thumbnail(0.5f).crossFade().diskCacheStrategy(DiskCacheStrategy.ALL).into(personImage);
     }
 
     @Override
@@ -123,6 +135,24 @@ public class MainActivity extends AppCompatActivity
             ft.addToBackStack(null);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
+        }
+        else if (id == R.id.sign_out) {
+                /*Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                        new ResultCallback<Status>() {
+                            @Override
+                            public void onResult(@NonNull Status status) {
+                            }
+                        }
+                );*/
+            }
+        else if (id== R.id.revoke_access){
+                /*Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
+                        new ResultCallback<Status>() {
+                            @Override
+                            public void onResult(@NonNull Status status) {
+                            }
+                        }
+                );*/
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
