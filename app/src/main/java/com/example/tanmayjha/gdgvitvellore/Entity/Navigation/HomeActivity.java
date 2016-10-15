@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.EventLog;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +19,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.tanmayjha.gdgvitvellore.Entity.Events.EventsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.FAQs.FAQsFragment;
+import com.example.tanmayjha.gdgvitvellore.Entity.LogIn.LoginActivity;
 import com.example.tanmayjha.gdgvitvellore.Entity.Project.ProjectFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Sponsor.SponsorFragment;
 import com.example.tanmayjha.gdgvitvellore.R;
@@ -111,7 +114,11 @@ public class HomeActivity extends AppCompatActivity
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
         } else if (id == R.id.events) {
-
+            EventsFragment eventsFragment=new EventsFragment();
+            ft.replace(R.id.container,eventsFragment);
+            ft.addToBackStack(null);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.commit();
         } else if (id == R.id.projects) {
             ProjectFragment projectFragment=new ProjectFragment();
             ft.replace(R.id.container,projectFragment);
@@ -126,9 +133,7 @@ public class HomeActivity extends AppCompatActivity
             ft.addToBackStack(null);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
-
-
-
+            
         } else if (id == R.id.about_us) {
 
             AboutUsFragment aboutUsFragment=new AboutUsFragment();
@@ -156,13 +161,7 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
         }
         else if (id == R.id.sign_out) {
-                /*Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                        new ResultCallback<Status>() {
-                            @Override
-                            public void onResult(@NonNull Status status) {
-                            }
-                        }
-                );*/
+            LoginActivity.signOut();
             }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

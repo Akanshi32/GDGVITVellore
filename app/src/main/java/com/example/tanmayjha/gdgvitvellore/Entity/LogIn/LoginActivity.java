@@ -21,12 +21,13 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener,GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = LoginActivity.class.getSimpleName(); //returns name of the class
     private static final int RC_SIGN_IN = 007;
     TextView skipThis;
-    private GoogleApiClient mGoogleApiClient;
+    public static GoogleApiClient mGoogleApiClient;
     private ProgressDialog mProgressDialog;
     private SignInButton buttonSignIn;
     @Override
@@ -162,6 +163,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+
+    public static void  signOut() {
+        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(@NonNull Status status) {
+                    }
+                }
+        );
+    }
+
     //TODO: Check why login is not working when i am putting the startActivity in onStart function and intent values on Handle result
-    //TODO: Sign out and revoke access options have to be given
+
    }
