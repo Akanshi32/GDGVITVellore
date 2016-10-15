@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.tanmayjha.gdgvitvellore.Entity.FAQs.FAQsFragment;
+import com.example.tanmayjha.gdgvitvellore.Entity.Project.ProjectFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Sponsor.SponsorFragment;
 import com.example.tanmayjha.gdgvitvellore.R;
 
@@ -25,7 +27,7 @@ import com.example.tanmayjha.gdgvitvellore.Entity.AboutUs.AboutUsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Feedback.FeedbackFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Welcome.WelcomeFragment;
 
-public class MainActivity extends AppCompatActivity
+public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
     String personName="User";
     //TODO: Get a default person url
@@ -111,6 +113,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.events) {
 
         } else if (id == R.id.projects) {
+            ProjectFragment projectFragment=new ProjectFragment();
+            ft.replace(R.id.container,projectFragment);
+            ft.addToBackStack(null);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.commit();
+
 
         } else if (id == R.id.sponsors) {
             SponsorFragment sponsorFragment =new SponsorFragment();
@@ -133,7 +141,11 @@ public class MainActivity extends AppCompatActivity
 
         }
         else if (id == R.id.faqs) {
-
+            FAQsFragment faqsFragment=new FAQsFragment();
+            ft.replace(R.id.container,faqsFragment);
+            ft.addToBackStack(null);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.commit();
         }
         else if (id == R.id.feedback) {
 
@@ -152,15 +164,6 @@ public class MainActivity extends AppCompatActivity
                         }
                 );*/
             }
-        else if (id== R.id.revoke_access){
-                /*Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
-                        new ResultCallback<Status>() {
-                            @Override
-                            public void onResult(@NonNull Status status) {
-                            }
-                        }
-                );*/
-        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
