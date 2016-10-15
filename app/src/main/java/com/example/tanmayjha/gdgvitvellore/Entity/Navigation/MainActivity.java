@@ -52,11 +52,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         Intent fromLogin=getIntent();
-        //To check null pointer exception
-        if(fromLogin.getStringExtra("personName")!= null||!fromLogin.getStringExtra("personName").isEmpty())
-            personName=fromLogin.getStringExtra("personName");
-        if(fromLogin.getStringExtra("personPhotoUrl")!=null||!fromLogin.getStringExtra("personPhotoUrl").isEmpty())
-            personPhotoUrl=fromLogin.getStringExtra("personPhotoUrl");
+        personName=fromLogin.getStringExtra("personName");
+        personPhotoUrl=fromLogin.getStringExtra("personPhotoUrl");
         Log.v("Person's name on MA",personName);
         View hView =  navigationView.getHeaderView(0);
         TextView name=(TextView)hView.findViewById(R.id.person_name);

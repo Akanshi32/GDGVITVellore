@@ -10,6 +10,6 @@ public class SponsorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sponsor);
+        setContentView(R.layout.fragment_sponsor);
     }
 }
