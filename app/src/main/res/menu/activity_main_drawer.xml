@@ -39,6 +39,18 @@
                 android:title="Feedback"/>
         </menu>
     </item>
+    <item android:title="Account">
+        <menu>
+            <item
+                android:id="@+id/sign_out"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Sign Out" />
+            <item
+                android:id="@+id/revoke_access"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="Revoke Acess"/>
+        </menu>
+    </item>
 
 
 </menu>

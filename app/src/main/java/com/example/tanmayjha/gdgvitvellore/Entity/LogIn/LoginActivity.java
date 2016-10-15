@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             toMainActivity.putExtra("personName",personName);
             toMainActivity.putExtra("personPhotoUrl",personPhotoUrl);
             Log.e(TAG, "Name: " + personName + ",Image: " + personPhotoUrl);
+            startActivity(toMainActivity);
         }
     }
 
@@ -129,7 +130,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
             });
         }
-        startActivity(toMainActivity);
         //Sending intent
     }
 
@@ -166,30 +166,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.skip_this:
                 Intent intent=new Intent(this,MainActivity.class);
+                intent.putExtra("personName","Guest");
+                intent.putExtra("personPhotoUrl","");
                 startActivity(intent);
         }
     }
-    //TODO: Sign out and revoke access options have to be given
-    /*private void signOut(){
-        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(@NonNull Status status) {
-                        updateUI(false);
-                    }
-                }
-        );
-    }
 
-    private void revokeAccess(){
-        Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(@NonNull Status status) {
-                        updateUI(false);
-                    }
-                }
-        );
-    }
-    */
-}
+    //TODO: Check why login is not working when i am putting the startActivity in onStart function and intent values on Handle result
+    //TODO: Sign out and revoke access options have to be given
+   }
