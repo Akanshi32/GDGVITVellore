@@ -26,10 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-=======
-        <activity android:name=".Entity.Sponsor.SponsorActivity" />
->>>>>>> 9951664b3bdb5e2f69d84a3acfd68837c70a3fcf
     </application>
 
 </manifest>
