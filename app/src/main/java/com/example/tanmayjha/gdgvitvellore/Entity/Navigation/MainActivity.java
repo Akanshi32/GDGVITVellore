@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     String personName="User";
     //TODO: Get a default person url
     String personPhotoUrl="";
+    FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        WelcomeFragment welcomeFragment=new WelcomeFragment();
+        ft.replace(R.id.container,welcomeFragment);
+        ft.addToBackStack(null);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.commit();
 
         Intent fromLogin=getIntent();
         personName=fromLogin.getStringExtra("personName");
@@ -97,10 +104,9 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
         // Handle navigation view item clicks here.
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
         int id = item.getItemId();
-
         if (id == R.id.welcome) {
             WelcomeFragment welcomeFragment=new WelcomeFragment();
             ft.replace(R.id.container,welcomeFragment);
@@ -114,6 +120,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.sponsors) {
 
         } else if (id == R.id.about_us) {
+
             AboutUsFragment aboutUsFragment=new AboutUsFragment();
             ft.replace(R.id.container,aboutUsFragment);
             ft.addToBackStack(null);
@@ -127,6 +134,7 @@ public class MainActivity extends AppCompatActivity
 
         }
         else if (id == R.id.feedback) {
+
             FeedbackFragment feedbackFragment=new FeedbackFragment();
             ft.replace(R.id.container,feedbackFragment);
             ft.addToBackStack(null);
