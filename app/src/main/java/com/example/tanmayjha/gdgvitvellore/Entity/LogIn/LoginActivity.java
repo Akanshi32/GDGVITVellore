@@ -33,10 +33,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     TextView skipThis;
     private GoogleApiClient mGoogleApiClient;
     private ProgressDialog mProgressDialog;
-
-    private SignInButton btnSignIn;
-    Intent toMainActivity=new Intent(this, MainActivity.class);
-
+    private SignInButton buttonSignIn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,10 +42,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setSupportActionBar(toolbar);
 
 
-        //TODO: Change the name of the btnSignIn into standard ButtonSignIn
+        //TODO: Change the name of the buttonSignIn into standard ButtonSignIn
 
-        btnSignIn = (SignInButton) findViewById(R.id.button_sign_in);
-        btnSignIn.setOnClickListener(this);
+        buttonSignIn = (SignInButton) findViewById(R.id.button_sign_in);
+        buttonSignIn.setOnClickListener(this);
         skipThis=(TextView)findViewById(R.id.skip_this);
         skipThis.setOnClickListener(this);
         //Configure sign-in to request the user's ID, email address, and basic
@@ -60,8 +57,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         mGoogleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
 
-        btnSignIn.setSize(SignInButton.SIZE_STANDARD);
-        btnSignIn.setScopes(gso.getScopeArray());
+        buttonSignIn.setSize(SignInButton.SIZE_STANDARD);
+        buttonSignIn.setScopes(gso.getScopeArray());
     }
 
     private void signIn() {

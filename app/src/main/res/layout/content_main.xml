@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:layout_margin="10dp"
+=======
+>>>>>>> 9951664b3bdb5e2f69d84a3acfd68837c70a3fcf
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Entity.Navigation.MainActivity"
     tools:showIn="@layout/app_bar_main">
