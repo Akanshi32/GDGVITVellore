@@ -1,0 +1,65 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Entity.Welcome.WelcomeFragment">
+
+        <!-- TODO: Update blank fragment layout -->
+        <ImageView
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/gdg_logo"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="    Google Developer's Group\nVellore Institute of technology\n                       Vellore"
+            android:fontFamily="serif"
+            android:textColor="#000000"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Google Developers Groups was established in VIT on 28th July 2014 and since then 3 successful events were conducted . The group now has 60 Developers ,This groups’s agenda is to introduce new technologies to the students, develop new ideas and polish skills in every possible field including management our faculty coordinator is Prof .P Senthilnathan and has guided us along this journey."
+            android:fontFamily="serif"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Our Skills:               HTML5                                   CSS3"
+                android:textColor="#000000"
+                android:fontFamily="serif"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="                              PHP/MySQL                           JavaScript"
+                android:textColor="#000000"
+                android:fontFamily="serif"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

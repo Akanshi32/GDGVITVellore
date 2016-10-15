@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Entity.Feedback.FeedbackFragment"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/gdg_logo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Write to us"
+        android:layout_gravity="center_horizontal"
+        android:textSize="40sp"
+        android:fontFamily="serif"
+        android:layout_marginTop="0dp"
+        android:textColor="#000000" />
+
+    <Spinner
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_option"
+        android:layout_gravity="center_horizontal"
+        android:entries="@array/Suggestions"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/feedback"
+        android:layout_marginTop="48dp"
+        android:ems="17"
+        android:hint="Please write here"
+        android:layout_gravity="left"/>
+
+    <Button
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:background="@drawable/buttonlayout"
+        android:id="@+id/submit"
+        android:fontFamily="serif">
+    </Button>
+
+
+
+</LinearLayout>
