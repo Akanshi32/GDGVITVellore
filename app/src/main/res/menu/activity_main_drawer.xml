@@ -12,11 +12,11 @@
             android:title="Events" />
         <item
             android:id="@+id/projects"
-            android:icon="@drawable/ic_navbar_sponsors"
+            android:icon="@drawable/ic_navbar_projects"
             android:title="Projects" />
         <item
             android:id="@+id/sponsors"
-            android:icon="@drawable/ic_navbar_projects"
+            android:icon="@drawable/ic_navbar_sponsors"
             android:title="Sponsors" />
     </group>
     <item android:title="Communicate">

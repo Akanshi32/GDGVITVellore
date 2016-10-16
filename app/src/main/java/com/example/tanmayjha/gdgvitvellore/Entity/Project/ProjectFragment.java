@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.tanmayjha.gdgvitvellore.Entity.model.ProjectModel;
 import com.example.tanmayjha.gdgvitvellore.R;
 import com.firebase.client.Firebase;
 import com.firebase.ui.FirebaseRecyclerAdapter;
@@ -19,8 +20,9 @@ import com.firebase.ui.FirebaseRecyclerAdapter;
  */
 public class ProjectFragment extends Fragment {
 
-    RecyclerView recyclerView;
+    RecyclerView mRecyclerView;
     Firebase mRef;
+
     public ProjectFragment() {
         // Required empty public constructor
     }
@@ -34,39 +36,38 @@ public class ProjectFragment extends Fragment {
     }
 
     @Override
-    public void onStart()
-    {
-        View view=getView();
+    public void onStart() {
         super.onStart();
-        mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/Projects/0");
-        recyclerView=(RecyclerView)view.findViewById(R.id.recycler_view_project);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        View view = getView();
+        mRef = new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/Projects");
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_project);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        FirebaseRecyclerAdapter<ProjectModel, ProjectsViewHolder> adapter=new FirebaseRecyclerAdapter<ProjectModel, ProjectsViewHolder>(
+                ProjectModel.class,
+                R.layout.card_project,
+                ProjectsViewHolder.class,
+                mRef.getRef()
+        ) {
+            @Override
+            protected void populateViewHolder(ProjectsViewHolder projectsViewHolder, ProjectModel projectModel, int i) {
+                projectsViewHolder.projectName.setText(projectModel.getProjectName());
+                projectsViewHolder.projectDescription.setText(projectModel.getProjectDescription());
+            }
+        };
 
-        FirebaseRecyclerAdapter<String,FaqsViewHolder> adapter=
-                new FirebaseRecyclerAdapter<String, FaqsViewHolder>(String.class,
-                        android.R.layout.simple_list_item_2,
-                        FaqsViewHolder.class,
-                        mRef) {
-                    @Override
-                    protected void populateViewHolder(FaqsViewHolder faqsViewHolder, String s, int i) {
-                        faqsViewHolder.mText.setText(s);
-                    }
-                };
-        recyclerView.setAdapter(adapter);
+        mRecyclerView.setAdapter(adapter);
     }
 
-    public static class FaqsViewHolder extends RecyclerView.ViewHolder{
-        TextView mText;
+    public static class ProjectsViewHolder extends RecyclerView.ViewHolder{
 
-        public FaqsViewHolder(View v){
+        TextView projectName,projectDescription;
+
+        public ProjectsViewHolder(View v) {
             super(v);
-            mText=(TextView)v.findViewById(android.R.id.text1);
-            /* TODO: Set Text size and color
-            mText.setTextColor(0000000);
-            mText.setTextSize(20);
-            */
+            projectName=(TextView)v.findViewById(R.id.project_name);
+            projectDescription=(TextView)v.findViewById(R.id.project_description);
         }
     }
-
+        
 }
