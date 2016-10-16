@@ -14,8 +14,8 @@
 
     <ImageView
         android:id="@+id/person_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:src="@android:drawable/sym_def_app_icon" />
 
@@ -26,6 +26,5 @@
         android:text="Name"
         android:id="@+id/person_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
 
 </LinearLayout>

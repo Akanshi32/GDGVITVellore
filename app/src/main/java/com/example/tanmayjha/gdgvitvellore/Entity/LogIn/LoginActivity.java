@@ -4,17 +4,13 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.tanmayjha.gdgvitvellore.Entity.Navigation.MainActivity;
+import com.example.tanmayjha.gdgvitvellore.Entity.Navigation.HomeActivity;
 import com.example.tanmayjha.gdgvitvellore.R;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -31,7 +27,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private static final String TAG = LoginActivity.class.getSimpleName(); //returns name of the class
     private static final int RC_SIGN_IN = 007;
     TextView skipThis;
-    private GoogleApiClient mGoogleApiClient;
+    public static GoogleApiClient mGoogleApiClient;
     private ProgressDialog mProgressDialog;
     private SignInButton buttonSignIn;
     @Override
@@ -84,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             //TODO: Note email will be needed for FAQ
 
-            Intent toMainActivity=new Intent(this, MainActivity.class);
+            Intent toMainActivity=new Intent(this, HomeActivity.class);
             toMainActivity.putExtra("personName",personName);
             toMainActivity.putExtra("personPhotoUrl",personPhotoUrl);
             Log.e(TAG, "Name: " + personName + ",Image: " + personPhotoUrl);
@@ -129,8 +125,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         //Sending intent
     }
-
-
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         // An unresolvable error has occurred and Google APIs (including Sign-In) will not
@@ -162,13 +156,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 signIn();
                 break;
             case R.id.skip_this:
-                Intent intent=new Intent(this,MainActivity.class);
+                Intent intent=new Intent(this,HomeActivity.class);
                 intent.putExtra("personName","Guest");
                 intent.putExtra("personPhotoUrl","");
                 startActivity(intent);
         }
     }
 
+
+    public static void  signOut() {
+        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(@NonNull Status status) {
+                    }
+                }
+        );
+    }
+
     //TODO: Check why login is not working when i am putting the startActivity in onStart function and intent values on Handle result
-    //TODO: Sign out and revoke access options have to be given
+
    }

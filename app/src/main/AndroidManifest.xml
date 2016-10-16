@@ -5,14 +5,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".Entity.Firebase.GDGVITVellore2"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".Entity.Firebase.GDGVITVellore2">
+        android:theme="@style/AppTheme" >
         <activity
-            android:name=".Entity.Navigation.MainActivity"
+            android:name=".Entity.Navigation.HomeActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
@@ -26,10 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-=======
-        <activity android:name=".Entity.Sponsor.SponsorActivity" />
->>>>>>> 9951664b3bdb5e2f69d84a3acfd68837c70a3fcf
     </application>
 
 </manifest>
