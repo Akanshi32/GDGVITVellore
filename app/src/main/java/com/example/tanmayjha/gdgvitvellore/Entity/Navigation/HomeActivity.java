@@ -133,7 +133,7 @@ public class HomeActivity extends AppCompatActivity
             ft.addToBackStack(null);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
-            
+
         } else if (id == R.id.about_us) {
 
             AboutUsFragment aboutUsFragment=new AboutUsFragment();
@@ -161,7 +161,10 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
         }
         else if (id == R.id.sign_out) {
-            LoginActivity.signOut();
+            Intent intent=new Intent(this,LoginActivity.class);
+            intent.putExtra("loginState",true);
+            startActivity(intent);
+            //Shows that the user has signed in!
             }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
