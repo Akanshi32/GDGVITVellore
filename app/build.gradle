@@ -27,12 +27,12 @@ dependencies {
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.google.android.gms:play-services-auth:9.6.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-<<<<<<< HEAD
+
     testCompile 'junit:junit:4.12'
-=======
+
     compile 'com.firebase:firebase-client-android:2.3.1'
     compile 'com.firebaseui:firebase-ui:0.3.1'
->>>>>>> 9951664b3bdb5e2f69d84a3acfd68837c70a3fcf
+
 }
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.android.application'
