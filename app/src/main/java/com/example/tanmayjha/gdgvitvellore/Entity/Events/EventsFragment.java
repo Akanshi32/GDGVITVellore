@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.tanmayjha.gdgvitvellore.Entity.model.EventModel;
 import com.example.tanmayjha.gdgvitvellore.R;
 import com.firebase.client.Firebase;
 import com.firebase.ui.FirebaseRecyclerAdapter;
@@ -39,21 +40,24 @@ public class EventsFragment extends Fragment {
     {
         View view=getView();
         super.onStart();
-        mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/Events/0");
-        recyclerView=(RecyclerView)view.findViewById(R.id.recycler_view_faq);
+        mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/Events");
+        recyclerView=(RecyclerView)view.findViewById(R.id.recycler_view_event);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        FirebaseRecyclerAdapter<String,EventsViewHolder> adapter=
-                new FirebaseRecyclerAdapter<String, EventsViewHolder>(String.class,
-                        android.R.layout.simple_list_item_2,
-                        EventsViewHolder.class,
-                        mRef) {
-                    @Override
-                    protected void populateViewHolder(EventsViewHolder faqsViewHolder, String s, int i) {
-                        faqsViewHolder.mText.setText(s);
-                    }
-                };
+        FirebaseRecyclerAdapter<EventModel,EventViewHolder> adapter=new FirebaseRecyclerAdapter<EventModel, EventViewHolder>(
+                EventModel.class,
+                R.layout.card_event,
+                EventViewHolder.class,
+                mRef.getRef()
+        ) {
+            @Override
+            protected void populateViewHolder(EventViewHolder eventViewHolder, EventModel eventModel, int i) {
+                eventViewHolder.eventName.setText(eventModel.getEventName());
+                eventViewHolder.eventDescription.setText(eventModel.getEventDescription());
+            }
+        };
+
         recyclerView.setAdapter(adapter);
     }
 
@@ -63,6 +67,16 @@ public class EventsFragment extends Fragment {
         public EventsViewHolder(View v){
             super(v);
             mText=(TextView)v.findViewById(android.R.id.text1);
+        }
+    }
+
+    public static class EventViewHolder extends RecyclerView.ViewHolder{
+        TextView eventName,eventDescription;
+
+        public EventViewHolder(View v){
+            super(v);
+            eventName=(TextView)v.findViewById(R.id.event_name);
+            eventDescription=(TextView)v.findViewById(R.id.event_description);
         }
     }
 
