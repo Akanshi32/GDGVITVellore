@@ -30,6 +30,8 @@ import com.example.tanmayjha.gdgvitvellore.Entity.AboutUs.AboutUsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Feedback.FeedbackFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Welcome.WelcomeFragment;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
     String personName="User";
@@ -64,9 +66,9 @@ public class HomeActivity extends AppCompatActivity
         Log.v("Person's name on MA",personName);
         View hView =  navigationView.getHeaderView(0);
         TextView name=(TextView)hView.findViewById(R.id.person_name);
-        ImageView personImage=(ImageView)hView.findViewById(R.id.person_image);
+        CircleImageView personImage=(CircleImageView)hView.findViewById(R.id.person_image);
         name.setText(personName);
-        Glide.with(getApplicationContext()).load(personPhotoUrl).thumbnail(0.5f).crossFade().diskCacheStrategy(DiskCacheStrategy.ALL).into(personImage);
+        Glide.with(getApplicationContext()).load(personPhotoUrl).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(personImage);
     }
 
     @Override
