@@ -2,6 +2,7 @@ package com.example.tanmayjha.gdgvitvellore.Entity.Navigation;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,12 +10,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.EventLog;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -29,19 +28,24 @@ import com.example.tanmayjha.gdgvitvellore.R;
 import com.example.tanmayjha.gdgvitvellore.Entity.AboutUs.AboutUsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Feedback.FeedbackFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Welcome.WelcomeFragment;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
     String personName="User";
+    GoogleApiClient mGoogleApiClient;
     //TODO: Get a default person url
     String personPhotoUrl="";
     FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -163,10 +167,16 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
         }
         else if (id == R.id.sign_out) {
+            mGoogleApiClient.getContext();
+            Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                    new ResultCallback<Status>() {
+                        @Override
+                        public void onResult(@NonNull Status status) {
+                        }
+                    }
+            );
             Intent intent=new Intent(this,LoginActivity.class);
-            intent.putExtra("loginState",true);
             startActivity(intent);
-            //Shows that the user has signed in!
             }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
