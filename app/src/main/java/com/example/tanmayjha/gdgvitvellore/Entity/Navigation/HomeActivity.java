@@ -60,7 +60,6 @@ public class HomeActivity extends AppCompatActivity
 
         WelcomeFragment welcomeFragment=new WelcomeFragment();
         ft.replace(R.id.container,welcomeFragment);
-        ft.addToBackStack(null);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.commit();
 
@@ -116,19 +115,16 @@ public class HomeActivity extends AppCompatActivity
         if (id == R.id.welcome) {
             WelcomeFragment welcomeFragment=new WelcomeFragment();
             ft.replace(R.id.container,welcomeFragment);
-            ft.addToBackStack(null);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
         } else if (id == R.id.events) {
             EventsFragment eventsFragment=new EventsFragment();
             ft.replace(R.id.container,eventsFragment);
-            ft.addToBackStack(null);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
         } else if (id == R.id.projects) {
             ProjectFragment projectFragment=new ProjectFragment();
             ft.replace(R.id.container,projectFragment);
-            ft.addToBackStack(null);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
 
@@ -136,7 +132,6 @@ public class HomeActivity extends AppCompatActivity
         } else if (id == R.id.sponsors) {
             SponsorFragment sponsorFragment =new SponsorFragment();
             ft.replace(R.id.container,sponsorFragment);
-            ft.addToBackStack(null);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
 
@@ -144,7 +139,6 @@ public class HomeActivity extends AppCompatActivity
 
             AboutUsFragment aboutUsFragment=new AboutUsFragment();
             ft.replace(R.id.container,aboutUsFragment);
-            ft.addToBackStack(null);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
 
@@ -154,7 +148,6 @@ public class HomeActivity extends AppCompatActivity
         else if (id == R.id.faqs) {
             FAQsFragment faqsFragment=new FAQsFragment();
             ft.replace(R.id.container,faqsFragment);
-            ft.addToBackStack(null);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
         }
@@ -162,7 +155,6 @@ public class HomeActivity extends AppCompatActivity
 
             FeedbackFragment feedbackFragment=new FeedbackFragment();
             ft.replace(R.id.container,feedbackFragment);
-            ft.addToBackStack(null);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
         }
