@@ -29,18 +29,23 @@ import com.example.tanmayjha.gdgvitvellore.Entity.AboutUs.AboutUsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Feedback.FeedbackFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Welcome.WelcomeFragment;
 import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener,GoogleApiClient.OnConnectionFailedListener{
     String personName="User";
     GoogleApiClient mGoogleApiClient;
+    String TAG=getClass().getSimpleName();
     //TODO: Get a default person url
-    String personPhotoUrl="";
+    String personPhotoUrl;
     FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,32 @@ public class HomeActivity extends AppCompatActivity
         CircleImageView personImage=(CircleImageView)hView.findViewById(R.id.person_image);
         name.setText(personName);
         Glide.with(getApplicationContext()).load(personPhotoUrl).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(personImage);
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        mGoogleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
+        OptionalPendingResult<GoogleSignInResult> opr =
+                Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
+
+        if (opr.isDone()) {
+            // Users cached credentials are valid, GoogleSignInResult containing ID token
+            // is available immediately. This likely means the current ID token is already
+            // fresh and can be sent to your server.
+            GoogleSignInResult result = opr.get();
+        } else {
+            // If the user has not previously signed in on this device or the sign-in has expired,
+            // this asynchronous branch will attempt to sign in the user silently and get a valid
+            // ID token. Cross-device single sign on will occur in this branch.
+            opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
+                @Override
+                public void onResult(@NonNull GoogleSignInResult result) {
+                }
+            });
+        }
     }
 
     @Override
@@ -159,7 +190,6 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
         }
         else if (id == R.id.sign_out) {
-            mGoogleApiClient.getContext();
             Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                     new ResultCallback<Status>() {
                         @Override
@@ -174,5 +204,11 @@ public class HomeActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        // An unresolvable error has occurred and Google APIs (including Sign-In) will not
+        // be available.
+        Log.d(TAG, "onConnectionFailed: " + connectionResult);
     }
 }

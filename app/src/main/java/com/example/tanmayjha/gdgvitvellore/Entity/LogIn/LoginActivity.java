@@ -73,7 +73,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             GoogleSignInAccount acct = result.getSignInAccount();
             Log.e(TAG, "display name:" + acct.getDisplayName());
             String personName = acct.getDisplayName();
-            String personPhotoUrl = acct.getPhotoUrl().toString();
+            String personPhotoUrl;
+            if(acct.getPhotoUrl()!=null)
+            {
+                personPhotoUrl = acct.getPhotoUrl().toString();
+            }
+            else
+            {
+                personPhotoUrl="https://developers.google.com/experts/img/user/user-default.png";
+            }
             String personemail = acct.getEmail();
 
                 Intent toMainActivity=new Intent(this, HomeActivity.class);
@@ -161,16 +169,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-
-    public void signOut() {
-        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(@NonNull Status status) {
-                    }
-                }
-        );
-    }
 
     //TODO: Check why login is not working when i am putting the startActivity in onStart function and intent values on Handle result
 
