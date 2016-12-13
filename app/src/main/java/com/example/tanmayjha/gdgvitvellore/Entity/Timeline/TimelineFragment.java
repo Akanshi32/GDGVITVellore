@@ -47,14 +47,14 @@ public class TimelineFragment extends Fragment {
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_timeline);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        FirebaseRecyclerAdapter<TimelineModel,TimelineFragment.TimelineViewHolder> adapter=new FirebaseRecyclerAdapter<TimelineModel,TimelineViewHolder>(
+        FirebaseRecyclerAdapter<TimelineModel,TimelineViewHolder> adapter=new FirebaseRecyclerAdapter<TimelineModel,TimelineViewHolder>(
                 TimelineModel.class,
                 R.layout.card_timeline,
-                TimelineFragment.TimelineViewHolder.class,
+                TimelineViewHolder.class,
                 mRef.getRef()
         ) {
             @Override
-            protected void populateViewHolder(TimelineFragment.TimelineViewHolder timelineViewHolder, TimelineModel timelineModel, int i) {
+            protected void populateViewHolder(TimelineViewHolder timelineViewHolder, TimelineModel timelineModel, int i) {
                 timelineViewHolder.timelineEventName.setText(timelineModel.getTimelineEventName());
                 timelineViewHolder.timelineEventVenue.setText(timelineModel.getTimelineEventVenue());
                 timelineViewHolder.timelineEventDate.setText(timelineModel.getTimelineEventDate());

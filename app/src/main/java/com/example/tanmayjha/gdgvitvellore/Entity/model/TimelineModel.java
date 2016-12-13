@@ -6,6 +6,7 @@ package com.example.tanmayjha.gdgvitvellore.Entity.model;
 
 public class TimelineModel {
     public String timelineEventPic,timelineEventName,timelineEventDate,timelineEventVenue,timelineEventTime;
+
     public TimelineModel(){
     }
 
