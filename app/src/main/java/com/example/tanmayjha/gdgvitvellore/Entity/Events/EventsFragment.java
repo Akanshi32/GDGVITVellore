@@ -10,10 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.tanmayjha.gdgvitvellore.Entity.Members.MembersFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.model.EventModel;
 import com.example.tanmayjha.gdgvitvellore.R;
 import com.firebase.client.Firebase;
 import com.firebase.ui.FirebaseRecyclerAdapter;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,28 +60,28 @@ public class EventsFragment extends Fragment {
             protected void populateViewHolder(EventViewHolder eventViewHolder, EventModel eventModel, int i) {
                 eventViewHolder.eventName.setText(eventModel.getEventName());
                 eventViewHolder.eventDescription.setText(eventModel.getEventDescription());
+                eventViewHolder.eventVenue.setText(eventModel.getEventVenue());
+                eventViewHolder.eventDate.setText(eventModel.getEventDate());
+                eventViewHolder.eventTime.setText(eventModel.getEventTime());
+                Glide.with(getActivity()).load(eventModel.getEventpic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(EventViewHolder.eventpic);
             }
         };
 
         recyclerView.setAdapter(adapter);
     }
 
-    public static class EventsViewHolder extends RecyclerView.ViewHolder{
-        TextView mText;
-
-        public EventsViewHolder(View v){
-            super(v);
-            mText=(TextView)v.findViewById(android.R.id.text1);
-        }
-    }
-
     public static class EventViewHolder extends RecyclerView.ViewHolder{
-        TextView eventName,eventDescription;
+        TextView eventName,eventDescription,eventVenue,eventDate,eventTime;
+        static CircleImageView eventpic;
 
         public EventViewHolder(View v){
             super(v);
             eventName=(TextView)v.findViewById(R.id.event_name);
             eventDescription=(TextView)v.findViewById(R.id.event_description);
+            eventVenue=(TextView)v.findViewById(R.id.event_venue);
+            eventDate=(TextView)v.findViewById(R.id.event_date);
+            eventTime=(TextView)v.findViewById(R.id.event_time);
+            eventpic=(CircleImageView)v.findViewById(R.id.event_image);
         }
     }
 

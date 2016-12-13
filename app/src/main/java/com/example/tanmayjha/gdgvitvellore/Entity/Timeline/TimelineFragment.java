@@ -30,6 +30,12 @@ public class TimelineFragment extends Fragment {
     Firebase mRef;
     RecyclerView mRecyclerView;
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_timeline, container, false);
+    }
     public TimelineFragment() {
         // Required empty public constructor
     }
@@ -74,11 +80,5 @@ public class TimelineFragment extends Fragment {
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_timeline, container, false);
-    }
 
 }

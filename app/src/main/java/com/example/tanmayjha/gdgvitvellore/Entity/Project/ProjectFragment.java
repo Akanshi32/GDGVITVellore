@@ -10,10 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.tanmayjha.gdgvitvellore.Entity.Members.MembersFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.model.ProjectModel;
 import com.example.tanmayjha.gdgvitvellore.R;
 import com.firebase.client.Firebase;
 import com.firebase.ui.FirebaseRecyclerAdapter;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,6 +58,8 @@ public class ProjectFragment extends Fragment {
             protected void populateViewHolder(ProjectsViewHolder projectsViewHolder, ProjectModel projectModel, int i) {
                 projectsViewHolder.projectName.setText(projectModel.getProjectName());
                 projectsViewHolder.projectDescription.setText(projectModel.getProjectDescription());
+                projectsViewHolder.projectContributer.setText(projectModel.getProjectContributer());
+                Glide.with(getActivity()).load(projectModel.getProjectIcon()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(ProjectsViewHolder.projectIcon);
             }
         };
 
@@ -61,12 +68,15 @@ public class ProjectFragment extends Fragment {
 
     public static class ProjectsViewHolder extends RecyclerView.ViewHolder{
 
-        TextView projectName,projectDescription;
+        TextView projectName,projectDescription,projectContributer;
+        static CircleImageView projectIcon;
 
         public ProjectsViewHolder(View v) {
             super(v);
             projectName=(TextView)v.findViewById(R.id.project_name);
             projectDescription=(TextView)v.findViewById(R.id.project_description);
+            projectContributer=(TextView)v.findViewById(R.id.project_contributor);
+            projectIcon=(CircleImageView) v.findViewById(R.id.project_image);
         }
     }
         

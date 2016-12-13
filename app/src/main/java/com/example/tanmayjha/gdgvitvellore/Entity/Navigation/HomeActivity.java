@@ -46,7 +46,6 @@ public class HomeActivity extends AppCompatActivity
     String personName="User";
     GoogleApiClient mGoogleApiClient;
     String TAG=getClass().getSimpleName();
-    //TODO: Get a default person url
     String personPhotoUrl;
     FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
     @Override
@@ -65,8 +64,8 @@ public class HomeActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        WelcomeFragment welcomeFragment=new WelcomeFragment();
-        ft.replace(R.id.container,welcomeFragment);
+        TimelineFragment timelineFragment=new TimelineFragment();
+        ft.replace(R.id.container,timelineFragment);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.commit();
 
