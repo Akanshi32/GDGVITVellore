@@ -29,7 +29,6 @@ public class EventModel {
     }
 
     public void setEventName(String eventName) {
-
         this.eventName = eventName;
     }
 }

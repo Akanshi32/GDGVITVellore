@@ -21,8 +21,10 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.tanmayjha.gdgvitvellore.Entity.Events.EventsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.FAQs.FAQsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.LogIn.LoginActivity;
+import com.example.tanmayjha.gdgvitvellore.Entity.Members.MembersFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Project.ProjectFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Sponsor.SponsorFragment;
+import com.example.tanmayjha.gdgvitvellore.Entity.Timeline.TimelineFragment;
 import com.example.tanmayjha.gdgvitvellore.R;
 
 import com.example.tanmayjha.gdgvitvellore.Entity.AboutUs.AboutUsFragment;
@@ -103,6 +105,8 @@ public class HomeActivity extends AppCompatActivity
                 }
             });
         }
+
+        // Timeline code starts here onwards.!
     }
 
     @Override
@@ -143,9 +147,9 @@ public class HomeActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
         int id = item.getItemId();
-        if (id == R.id.welcome) {
-            WelcomeFragment welcomeFragment=new WelcomeFragment();
-            ft.replace(R.id.container,welcomeFragment);
+        if (id == R.id.timeline) {
+            TimelineFragment timelineFragment=new TimelineFragment();
+            ft.replace(R.id.container,timelineFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
         } else if (id == R.id.events) {
@@ -158,23 +162,22 @@ public class HomeActivity extends AppCompatActivity
             ft.replace(R.id.container,projectFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
-
-
+        } else if (id == R.id.members) {
+            MembersFragment membersFragment=new MembersFragment();
+            ft.replace(R.id.container, membersFragment);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.commit();
         } else if (id == R.id.sponsors) {
             SponsorFragment sponsorFragment =new SponsorFragment();
             ft.replace(R.id.container,sponsorFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
-
         } else if (id == R.id.about_us) {
-
             AboutUsFragment aboutUsFragment=new AboutUsFragment();
             ft.replace(R.id.container,aboutUsFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
-
         } else if (id == R.id.contact_us) {
-
         }
         else if (id == R.id.faqs) {
             FAQsFragment faqsFragment=new FAQsFragment();
@@ -183,7 +186,6 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
         }
         else if (id == R.id.feedback) {
-
             FeedbackFragment feedbackFragment=new FeedbackFragment();
             ft.replace(R.id.container,feedbackFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);

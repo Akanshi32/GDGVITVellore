@@ -43,7 +43,7 @@ public class FAQsFragment extends Fragment {
     {
         super.onStart();
         View view=getView();
-        mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/Faqs");
+        mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/faqs");
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_faq);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

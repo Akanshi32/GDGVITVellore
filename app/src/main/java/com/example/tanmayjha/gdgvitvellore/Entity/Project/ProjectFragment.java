@@ -39,7 +39,7 @@ public class ProjectFragment extends Fragment {
     public void onStart() {
         super.onStart();
         View view = getView();
-        mRef = new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/Projects");
+        mRef = new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/project");
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_project);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

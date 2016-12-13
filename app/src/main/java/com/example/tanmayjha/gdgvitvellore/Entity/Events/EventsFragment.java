@@ -40,7 +40,7 @@ public class EventsFragment extends Fragment {
     {
         View view=getView();
         super.onStart();
-        mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/Events");
+        mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/events");
         recyclerView=(RecyclerView)view.findViewById(R.id.recycler_view_event);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
