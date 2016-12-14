@@ -48,8 +48,10 @@ public class HomeActivity extends AppCompatActivity
     String TAG=getClass().getSimpleName();
     String personPhotoUrl;
     FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -145,50 +147,60 @@ public class HomeActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        String title="";
         int id = item.getItemId();
         if (id == R.id.timeline) {
             TimelineFragment timelineFragment=new TimelineFragment();
             ft.replace(R.id.container,timelineFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
+            title="Timeline";
         } else if (id == R.id.events) {
             EventsFragment eventsFragment=new EventsFragment();
             ft.replace(R.id.container,eventsFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
+            title="Events";
         } else if (id == R.id.projects) {
             ProjectFragment projectFragment=new ProjectFragment();
             ft.replace(R.id.container,projectFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
+            title="Projects";
         } else if (id == R.id.members) {
             MembersFragment membersFragment=new MembersFragment();
             ft.replace(R.id.container, membersFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
+            title="Members";
         } else if (id == R.id.sponsors) {
             SponsorFragment sponsorFragment =new SponsorFragment();
             ft.replace(R.id.container,sponsorFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
+            title="Sponsors";
         } else if (id == R.id.about_us) {
             AboutUsFragment aboutUsFragment=new AboutUsFragment();
             ft.replace(R.id.container,aboutUsFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
+            title="About Us";
         } else if (id == R.id.contact_us) {
+            title="Contact Us";
         }
         else if (id == R.id.faqs) {
             FAQsFragment faqsFragment=new FAQsFragment();
             ft.replace(R.id.container,faqsFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
+            title="FAQs";
         }
         else if (id == R.id.feedback) {
             FeedbackFragment feedbackFragment=new FeedbackFragment();
             ft.replace(R.id.container,feedbackFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
+            title="Feedback";
         }
         else if (id == R.id.sign_out) {
             Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
@@ -201,7 +213,7 @@ public class HomeActivity extends AppCompatActivity
             Intent intent=new Intent(this,LoginActivity.class);
             startActivity(intent);
             }
-
+        getSupportActionBar().setTitle(title);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
