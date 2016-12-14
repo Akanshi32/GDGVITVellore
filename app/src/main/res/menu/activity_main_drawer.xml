@@ -38,10 +38,6 @@
                 android:id="@+id/faqs"
                 android:icon="@drawable/ic_faqs"
                 android:title="FAQs" />
-            <item
-                android:id="@+id/feedback"
-                android:icon="@drawable/ic_feedback"
-                android:title="Feedback"/>
         </menu>
     </item>
     <item android:title="Account">

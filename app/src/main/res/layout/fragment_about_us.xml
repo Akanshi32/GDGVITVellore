@@ -1,130 +1,214 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
-    android:background="#E0E0E0"
+    android:background="#FFFFFF"
     android:layout_height="match_parent">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_margin="10dp"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Entity.AboutUs.AboutUsFragment">
+    tools:context=".Entity.AboutUs.AboutUsFragment"
+    android:paddingBottom="20dp">
 
-    <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:src="@drawable/gdg"
         android:id="@+id/imageView"
         android:layout_marginBottom="5dp"/>
+        <android.support.v7.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="5dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ABOUT US"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="sans-serif"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#1E989B"
+                    android:textAlignment="center"
+                    android:layout_marginTop="0dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GDG VIT Vellore is a non-profit developers group to learn share and know more about Google technologies.Our events are open to newbies,developers,managers and organizations who are interested in Google technologies or use them as a part of their projects"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="sans-serif"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#6D6D6D"
+                    android:layout_marginBottom="10dp"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="5dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="5dp">
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="WHAT DO WE DO:"
+                android:textAlignment="center"
+                android:layout_gravity="left"
+                android:fontFamily="sans-serif"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#1E989B" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tech Talks"
+                android:textAlignment="center"
+                android:layout_gravity="left"
+                android:fontFamily="sans-serif"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#1E989B"
+                android:layout_marginTop="5dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Google talks are a grassroots-style series of presentation given by various technical experts spanning a wide spectrum of topics in technology and related areas."
+                android:fontFamily="sans-serif"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#6D6D6D"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="DEV Fests"
+                android:layout_gravity="left"
+                android:fontFamily="sans-serif"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#1E989B"
+                android:layout_marginTop="5dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="GDG Dev Fests are large scale, community-run events that offer speaker sessions across multiple product areas, hackathons, code labs and many more."
+                android:fontFamily="sans-serif"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#6D6D6D"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Code School"
+                android:textAlignment="center"
+                android:layout_gravity="left"
+                android:fontFamily="sans-serif"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#1E989B"
+                android:layout_marginTop="5dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Google code school teaches web technologies in the comfort of your browser through video lessons, coding challenges and screencasts."
+                android:fontFamily="sans-serif"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#6D6D6D"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Beta Testing"
+                android:textAlignment="center"
+                android:layout_gravity="left"
+                android:fontFamily="sans-serif"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#1E989B"
+                android:layout_marginTop="5dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="Beta Testing is the essence of developing a software. We test every aspect of our product before releasing it for the real-world exposure."
+                android:fontFamily="sans-serif"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#6D6D6D">
+            </TextView>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ABOUT US"
-
+        android:text="Suggestions"
+        android:fontFamily="sans-serif"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#1E989B"
         android:layout_gravity="center_horizontal"
-        android:textSize="40sp"
-        android:fontFamily="Roboto"
-
         android:textAlignment="center"
-        android:layout_marginTop="0dp"
-        android:textColor="#009688" />
-    <TextView
+        android:layout_marginTop="10dp"/>
+
+    <Spinner
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="Roboto"
-        android:text="GDG VIT Vellore is a non-profit developers group to learn share and know more about Google technologies.Our events are open to newbies,developers,managers and organizations who are interested in Google technologies or use them as a part of their projects"
-        android:layout_gravity="left"
-        android:textSize="15sp"
-        android:layout_marginTop="5dp"
-        android:textColor="#009688" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="WHAT DO WE DO:"
-        android:textAlignment="center"
-        android:layout_gravity="left"
-        android:textSize="35sp"
-        android:fontFamily="Roboto"
-        android:layout_marginTop="5dp"
-        android:textColor="#009688" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tech Talks"
-        android:textAlignment="center"
-        android:layout_gravity="left"
-        android:textSize="30sp"
-        android:fontFamily="Roboto"
-        android:layout_marginTop="5dp"
-        android:textColor="#039BE5" />
-    <TextView
+        android:id="@+id/spinner_option"
+        android:layout_gravity="center_horizontal"
+        android:entries="@array/Suggestions"/>
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Google talks are a grassroots-style series of presentation given by various technical experts spanning a wide spectrum of topics in technology and related areas."
-        android:textSize="15sp"
-        android:fontFamily="Roboto"
-        android:textColor="#009688"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="DEV Fests"
-        android:layout_gravity="left"
-        android:textSize="30sp"
-        android:fontFamily="Roboto"
+        android:id="@+id/feedback"
         android:layout_marginTop="5dp"
-        android:textColor="#039BE5" />
-    <TextView
+        android:fontFamily="sans-serif"
+        android:textSize="14sp"
+        android:textColorHint="#6D6D6D"
+        android:textColor="#000000"
+        android:ems="8"
+        android:inputType="text"
+        android:hint="Please write here..."
+        android:layout_gravity="left"/>
+
+    <Button
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="GDG Dev Fests are large scale, community-run events that offer speaker sessions across multiple product areas, hackathons, code labs and many more."
-        android:textSize="15sp"
-        android:fontFamily="Roboto"
-        android:textColor="#009688"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Code School"
-        android:textAlignment="center"
-        android:layout_gravity="left"
-        android:textSize="30sp"
-        android:fontFamily="Roboto"
-        android:layout_marginTop="5dp"
-        android:textColor="#039BE5" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="Google code school teaches web technologies in the comfort of your browser through video lessons, coding challenges and screencasts."
-        android:textSize="15sp"
-
-        android:fontFamily="Roboto"
-        android:textColor="#009688"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Beta Testing"
-        android:textAlignment="center"
-        android:layout_gravity="left"
-        android:textSize="30sp"
-        android:fontFamily="Roboto"
-        android:layout_marginTop="5dp"
-        android:textColor="#039BE5" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-
-        android:text="Beta Testing is the essence of developing a software. We test every aspect of our product before releasing it for the real-world exposure."
-        android:textSize="15sp"
-        android:fontFamily="Roboto"
-        android:textColor="#009688"/>
+        android:layout_gravity="center_horizontal"
+        android:text="Submit"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/buttonlayout"
+        android:id="@+id/submit"
+        android:fontFamily="sans-serif">
+        </Button>
 </LinearLayout>
 </ScrollView>

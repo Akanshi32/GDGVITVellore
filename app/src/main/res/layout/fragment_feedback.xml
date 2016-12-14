@@ -50,7 +50,7 @@
         android:textColor="#FFFFFF"
         android:background="@drawable/buttonlayout"
         android:id="@+id/submit"
-        android:fontFamily="Roboto">
+        android:fontFamily="sans-serif">
     </Button>
 
 

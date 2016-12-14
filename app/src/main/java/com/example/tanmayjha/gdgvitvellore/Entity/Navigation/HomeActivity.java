@@ -86,6 +86,8 @@ public class HomeActivity extends AppCompatActivity
     public void onStart()
     {
         super.onStart();
+        String title="Timeline";
+        getSupportActionBar().setTitle(title);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         mGoogleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
         OptionalPendingResult<GoogleSignInResult> opr =
@@ -195,13 +197,14 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
             title="FAQs";
         }
-        else if (id == R.id.feedback) {
+        /*else if (id == R.id.feedback) {
             FeedbackFragment feedbackFragment=new FeedbackFragment();
             ft.replace(R.id.container,feedbackFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
             title="Feedback";
         }
+        */
         else if (id == R.id.sign_out) {
             Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                     new ResultCallback<Status>() {
