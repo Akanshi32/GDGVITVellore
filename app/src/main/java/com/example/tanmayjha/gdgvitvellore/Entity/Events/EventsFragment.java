@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -17,6 +18,7 @@ import com.example.tanmayjha.gdgvitvellore.Entity.model.EventModel;
 import com.example.tanmayjha.gdgvitvellore.R;
 import com.firebase.client.Firebase;
 import com.firebase.ui.FirebaseRecyclerAdapter;
+import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -63,6 +65,7 @@ public class EventsFragment extends Fragment {
                 eventViewHolder.eventVenue.setText(eventModel.getEventVenue());
                 eventViewHolder.eventDate.setText(eventModel.getEventDate());
                 eventViewHolder.eventTime.setText(eventModel.getEventTime());
+                Picasso.with(getActivity()).load(EventModel.getEventpic()).into(EventViewHolder.eventpic);
                 Glide.with(getActivity()).load(eventModel.getEventpic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(EventViewHolder.eventpic);
             }
         };
@@ -72,7 +75,7 @@ public class EventsFragment extends Fragment {
 
     public static class EventViewHolder extends RecyclerView.ViewHolder{
         TextView eventName,eventDescription,eventVenue,eventDate,eventTime;
-        static CircleImageView eventpic;
+        static ImageView eventpic;
 
         public EventViewHolder(View v){
             super(v);
@@ -81,7 +84,7 @@ public class EventsFragment extends Fragment {
             eventVenue=(TextView)v.findViewById(R.id.event_venue);
             eventDate=(TextView)v.findViewById(R.id.event_date);
             eventTime=(TextView)v.findViewById(R.id.event_time);
-            eventpic=(CircleImageView)v.findViewById(R.id.event_image);
+            eventpic=(ImageView)v.findViewById(R.id.event_image);
         }
     }
 

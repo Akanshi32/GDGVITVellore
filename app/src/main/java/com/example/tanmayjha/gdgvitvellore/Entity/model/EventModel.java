@@ -4,7 +4,7 @@ package com.example.tanmayjha.gdgvitvellore.Entity.model;
  * Created by tanmay jha on 16-10-2016.
  */
 public class EventModel {
-    public String eventName,eventDescription,eventVenue,eventDate,eventTime,eventpic;
+    static public String eventName,eventDescription,eventVenue,eventDate,eventTime,eventpic;
 
     public EventModel(String eventDate, String eventDescription, String eventName, String eventpic, String eventTime, String eventVenue) {
         this.eventDate = eventDate;
@@ -35,7 +35,7 @@ public class EventModel {
         return eventDate;
     }
 
-    public String getEventpic() {
+    static public String getEventpic() {
         return eventpic;
     }
 

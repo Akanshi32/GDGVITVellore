@@ -11,59 +11,71 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dp"
+        android:background="@null"
         card_view:cardCornerRadius="4dp"
         card_view:cardElevation="5dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/timeline_event_image"
-                android:layout_marginTop="10dp"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:src="@android:drawable/sym_def_app_icon"
-                app:civ_border_width="2dp"
-                app:civ_border_color="#80000000"/>
+            android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5dp">
-                <TextView
-                    android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/timeline_event_image"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:src="@android:drawable/sym_def_app_icon"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#80000000"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Event Name"
-                    android:id="@+id/timeline_event_name"
-                    android:fontFamily="serif"
-                    android:textSize="20sp"
-                    android:textColor="#000000"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Venue"
-                    android:id="@+id/timeline_event_venue"
-                    android:fontFamily="serif"
-                    android:textSize="20sp"
-                    android:textColor="#000000"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Date"
-                    android:id="@+id/timeline_event_date"
-                    android:fontFamily="serif"
-                    android:textSize="20sp"
-                    android:textColor="#000000"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/timeline_event_time"
-                    android:text="Time"
-                    android:fontFamily="serif"
-                    android:textSize="20sp"
-                    android:textColor="#000000" />
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Event Name"
+                        android:id="@+id/timeline_event_name"
+                        android:fontFamily="serif"
+                        android:textSize="25sp"
+                        android:textColor="#000000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date"
+                        android:id="@+id/timeline_event_date"
+                        android:fontFamily="serif"
+                        android:textSize="20sp"
+                        android:textColor="#000000"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Venue"
+                        android:id="@+id/timeline_event_venue"
+                        android:fontFamily="serif"
+                        android:textSize="20sp"
+                        android:textColor="#000000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/timeline_event_time"
+                        android:text="Time"
+                        android:fontFamily="serif"
+                        android:textSize="20sp"
+                        android:textColor="#000000" />
+                </LinearLayout>
             </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/timeline_line"/>
         </LinearLayout>
+
     </android.support.v7.widget.CardView>
 </LinearLayout>
