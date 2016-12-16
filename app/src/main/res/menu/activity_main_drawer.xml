@@ -22,7 +22,7 @@
         <item
             android:id="@+id/sponsors"
             android:icon="@drawable/ic_navbar_sponsors"
-            android:title="Sponsors" />
+            android:title="The Board" />
     </group>
     <item android:title="Communicate">
         <menu>
