@@ -180,7 +180,7 @@ public class HomeActivity extends AppCompatActivity
             ft.replace(R.id.container,sponsorFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
-            title="Sponsors";
+            title="Organisers";
         } else if (id == R.id.about_us) {
             AboutUsFragment aboutUsFragment=new AboutUsFragment();
             ft.replace(R.id.container,aboutUsFragment);
