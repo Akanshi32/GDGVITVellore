@@ -183,19 +183,24 @@
         android:id="@+id/spinner_option"
         android:layout_gravity="center_horizontal"
         android:entries="@array/Suggestions"/>
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/feedback"
-        android:layout_marginTop="5dp"
-        android:fontFamily="sans-serif"
-        android:textSize="14sp"
-        android:textColorHint="#6D6D6D"
-        android:textColor="#000000"
-        android:ems="8"
-        android:inputType="text"
-        android:hint="Please write here..."
-        android:layout_gravity="left"/>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/feedback"
+            android:layout_marginTop="5dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:textColorHint="#6D6D6D"
+            android:textColor="#000000"
+            android:ems="8"
+            android:inputType="text"
+            android:hint="Please write here..."
+            android:layout_gravity="left"/>
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:layout_marginTop="10dp"
