@@ -56,5 +56,6 @@
     </string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_intro_slider">IntroSliderActivity</string>
+    <string name="title_activity_tabbed_member">TabbedMemberActivity</string>
 
 </resources>

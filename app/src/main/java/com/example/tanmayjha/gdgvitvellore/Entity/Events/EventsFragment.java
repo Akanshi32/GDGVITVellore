@@ -13,14 +13,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.tanmayjha.gdgvitvellore.Entity.Members.MembersFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.model.EventModel;
 import com.example.tanmayjha.gdgvitvellore.R;
 import com.firebase.client.Firebase;
 import com.firebase.ui.FirebaseRecyclerAdapter;
 import com.squareup.picasso.Picasso;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.

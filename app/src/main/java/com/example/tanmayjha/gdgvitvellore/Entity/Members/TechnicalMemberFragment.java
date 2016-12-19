@@ -8,31 +8,26 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.tanmayjha.gdgvitvellore.Entity.FAQs.FAQsFragment;
-import com.example.tanmayjha.gdgvitvellore.Entity.model.FaqsModel;
 import com.example.tanmayjha.gdgvitvellore.Entity.model.MemberModel;
 import com.example.tanmayjha.gdgvitvellore.R;
 import com.firebase.client.Firebase;
 import com.firebase.ui.FirebaseRecyclerAdapter;
-
-import org.w3c.dom.Text;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MembersFragment extends Fragment {
+public class TechnicalMemberFragment extends Fragment {
 
     RecyclerView mRecyclerView;
     Firebase mRef;
 
-    public MembersFragment() {
+    public TechnicalMemberFragment() {
         // Required empty public constructor
     }
 
@@ -40,22 +35,22 @@ public class MembersFragment extends Fragment {
     {
         super.onStart();
         View view=getView();
-        mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/members");
-        mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_member);
+        mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/technicalmembers");
+        mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_technical_member);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        FirebaseRecyclerAdapter<MemberModel,MembersFragment.MembersViewHolder> adapter=new FirebaseRecyclerAdapter<MemberModel,MembersViewHolder>(
+        FirebaseRecyclerAdapter<MemberModel,TechnicalMemberFragment.MembersViewHolder> adapter=new FirebaseRecyclerAdapter<MemberModel,TechnicalMemberFragment.MembersViewHolder>(
                 MemberModel.class,
                 R.layout.card_member,
-                MembersFragment.MembersViewHolder.class,
+                TechnicalMemberFragment.MembersViewHolder.class,
                 mRef.getRef()
         ) {
             @Override
-            protected void populateViewHolder(MembersFragment.MembersViewHolder membersViewHolder, MemberModel memberModel, int i) {
+            protected void populateViewHolder(TechnicalMemberFragment.MembersViewHolder membersViewHolder, MemberModel memberModel, int i) {
                 membersViewHolder.name.setText(memberModel.getName());
                 membersViewHolder.work.setText(memberModel.getWork());
                 membersViewHolder.githubid.setText(memberModel.getGithubid());
-                Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(MembersViewHolder.profile_pic);
+                Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(TechnicalMemberFragment.MembersViewHolder.profile_pic);
             }
         };
 
@@ -81,7 +76,7 @@ public class MembersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_members, container, false);
+        return inflater.inflate(R.layout.fragment_technical_member, container, false);
     }
 
 }

@@ -12,10 +12,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.tanmayjha.gdgvitvellore.Entity.FAQs.FAQsFragment;
-import com.example.tanmayjha.gdgvitvellore.Entity.Members.MembersFragment;
-import com.example.tanmayjha.gdgvitvellore.Entity.model.FaqsModel;
-import com.example.tanmayjha.gdgvitvellore.Entity.model.MemberModel;
 import com.example.tanmayjha.gdgvitvellore.Entity.model.TimelineModel;
 import com.example.tanmayjha.gdgvitvellore.R;
 import com.firebase.client.Firebase;

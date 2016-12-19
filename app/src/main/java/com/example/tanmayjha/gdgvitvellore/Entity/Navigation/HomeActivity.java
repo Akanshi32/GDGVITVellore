@@ -21,7 +21,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.tanmayjha.gdgvitvellore.Entity.Events.EventsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.FAQs.FAQsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.LogIn.LoginActivity;
-import com.example.tanmayjha.gdgvitvellore.Entity.Members.MembersFragment;
+import com.example.tanmayjha.gdgvitvellore.Entity.Members.TabbedMemberFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Project.ProjectFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Organiser.OrganiserFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Timeline.TimelineFragment;
@@ -168,8 +168,8 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
             title="Projects";
         } else if (id == R.id.members) {
-            MembersFragment membersFragment=new MembersFragment();
-            ft.replace(R.id.container, membersFragment);
+            TabbedMemberFragment tabbedMemberFragment=new TabbedMemberFragment();
+            ft.replace(R.id.container, tabbedMemberFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
             title="Members";
