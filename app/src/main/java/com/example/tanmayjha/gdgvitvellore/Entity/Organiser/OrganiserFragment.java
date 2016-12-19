@@ -1,4 +1,4 @@
-package com.example.tanmayjha.gdgvitvellore.Entity.Sponsor;
+package com.example.tanmayjha.gdgvitvellore.Entity.Organiser;
 
 
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SponsorFragment extends Fragment {
+public class OrganiserFragment extends Fragment {
 
 
     private List<TeamMember> teamMemberList = new ArrayList<>();
@@ -26,7 +26,7 @@ public class SponsorFragment extends Fragment {
     private TeamAdapter teamAdapter;
     private View v;
 
-    public SponsorFragment() {
+    public OrganiserFragment() {
         // Required empty public constructor
     }
 

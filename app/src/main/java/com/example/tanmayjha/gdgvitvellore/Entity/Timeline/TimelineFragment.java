@@ -79,6 +79,13 @@ public class TimelineFragment extends Fragment {
             timelineEventPic=(CircleImageView)v.findViewById(R.id.timeline_event_image);
         }
     }
-
-
 }
+
+
+
+//TODO: I can put up an aysnc task which will show a progress bar
+//TODO: of loading data so user doesn't finds an empty screen
+//TODO: when he opens up the app. Also, my main thread will get lighter.
+//TODO: Here, when back is press the app should be destroyed.
+//TODO: Presently its reopening the main slide again and again.
+//TODO: Apply view pager concept to Members fragment to have seperate view of developer management board etc

@@ -1,4 +1,4 @@
-package com.example.tanmayjha.gdgvitvellore.Entity.Sponsor;
+package com.example.tanmayjha.gdgvitvellore.Entity.Organiser;
 
 
 public class TeamMember {

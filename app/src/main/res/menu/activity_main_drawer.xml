@@ -20,7 +20,7 @@
             android:icon="@drawable/ic_navbar_projects"
             android:title="Members" />
         <item
-            android:id="@+id/sponsors"
+            android:id="@+id/organiser"
             android:icon="@drawable/ic_navbar_sponsors"
             android:title="The Board" />
     </group>

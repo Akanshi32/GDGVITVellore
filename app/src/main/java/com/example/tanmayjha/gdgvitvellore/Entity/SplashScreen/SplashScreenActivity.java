@@ -10,6 +10,7 @@ import android.util.DisplayMetrics;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 
+import com.example.tanmayjha.gdgvitvellore.Entity.IntroSlider.IntroSliderActivity;
 import com.example.tanmayjha.gdgvitvellore.Entity.LogIn.LoginActivity;
 import com.example.tanmayjha.gdgvitvellore.R;
 
@@ -32,7 +33,7 @@ public class SplashScreenActivity extends Activity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                Intent mainIntent = new Intent(SplashScreenActivity.this,LoginActivity.class);
+                Intent mainIntent = new Intent(SplashScreenActivity.this,IntroSliderActivity.class);
                 SplashScreenActivity.this.startActivity(mainIntent);
                 SplashScreenActivity.this.finish();
             }

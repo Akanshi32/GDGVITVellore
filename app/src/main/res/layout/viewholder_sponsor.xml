@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="3dp"
+    android:paddingLeft="1dp"
+    android:paddingRight="1dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingLeft="35dp"
+            android:paddingTop="5dp"
+            android:paddingRight="1dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#2c2c2c"
+            android:orientation="horizontal">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/member_image"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/gdg"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:paddingLeft="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:textColor="#FFFFFF"
+                    android:id="@+id/member_name"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif"
+                    android:textAllCaps="true"
+                    android:textSize="16dp"
+                    android:text="NAME"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:textStyle="bold"
+                    android:id="@+id/desg"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif"
+                    android:text="DESIGNATION"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

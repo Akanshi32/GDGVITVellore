@@ -1,23 +1,21 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.tanmayjha.gdgvitvellore.Entity.Project.ProjectFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="10dp"
+    android:padding="10dp"
     android:background="#FFFFFF"
-    tools:context="com.example.tanmayjha.gdgvitvellore.Entity.Project.ProjectFragment"
     android:orientation="vertical">
     <ImageView
         android:layout_marginTop="20dp"
         android:layout_width="365dp"
         android:layout_height="200dp"
         android:src="@drawable/event"/>
-
     <android.support.v7.widget.RecyclerView
         android:layout_marginTop="30sp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recycler_view_project">
     </android.support.v7.widget.RecyclerView>
-
-
 </LinearLayout>

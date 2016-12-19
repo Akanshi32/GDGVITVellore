@@ -23,13 +23,11 @@ import com.example.tanmayjha.gdgvitvellore.Entity.FAQs.FAQsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.LogIn.LoginActivity;
 import com.example.tanmayjha.gdgvitvellore.Entity.Members.MembersFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Project.ProjectFragment;
-import com.example.tanmayjha.gdgvitvellore.Entity.Sponsor.SponsorFragment;
+import com.example.tanmayjha.gdgvitvellore.Entity.Organiser.OrganiserFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Timeline.TimelineFragment;
 import com.example.tanmayjha.gdgvitvellore.R;
 
 import com.example.tanmayjha.gdgvitvellore.Entity.AboutUs.AboutUsFragment;
-import com.example.tanmayjha.gdgvitvellore.Entity.Feedback.FeedbackFragment;
-import com.example.tanmayjha.gdgvitvellore.Entity.Welcome.WelcomeFragment;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -175,9 +173,9 @@ public class HomeActivity extends AppCompatActivity
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
             title="Members";
-        } else if (id == R.id.sponsors) {
-            SponsorFragment sponsorFragment =new SponsorFragment();
-            ft.replace(R.id.container,sponsorFragment);
+        } else if (id == R.id.organiser) {
+            OrganiserFragment organiserFragment =new OrganiserFragment();
+            ft.replace(R.id.container, organiserFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
             title="The Board";

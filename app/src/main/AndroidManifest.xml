@@ -29,7 +29,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity
+        <!--
+        <activity
             android:name=".Entity.LogIn.SignUpActivityUsingFirebase"
             android:label="@string/title_activity_login_activity_using_firebase"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -44,7 +45,9 @@
         <activity
             android:name=".Entity.LogIn.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>-->
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        -->
+        <activity android:name=".Entity.IntroSlider.IntroSliderActivity"></activity>
     </application>
 
 </manifest>

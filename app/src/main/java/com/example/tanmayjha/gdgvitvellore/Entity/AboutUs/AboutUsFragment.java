@@ -45,18 +45,29 @@ public class AboutUsFragment extends Fragment {
 
                 if(feedback.getText().toString().trim().isEmpty())
                 {
+                    // Whether the error functionality is enabled or not in this layout.
+                    // Enabling this functionality before setting an error message via
+                    // setError(CharSequence), will mean that this layout will not
+                    // change size when an error is displayed.
+                    // But i don't know why its not working here.
+                    inputFeedback.setErrorEnabled(true);
                     inputFeedback.setError("Enter the text first");
+                    //feedback.requestFocus will give focus to Edit Text.
+                    // Like the | will start blinking on it. Though keyboard
+                    // will not show only by this single code.
                     if(feedback.requestFocus())
                     {
                         //not sure what is the use of below code
                         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                     }
-                    inputFeedback.setErrorEnabled(true);
-
                 }
                 else
                 {
-                    //below statement is used to remove the error statement i guess.
+                    //This removes the error idk why and wtf is happening
+                    //According to docs, it should be used to specify that
+                    //the layout hasn't got any space to display error.
+                    //So, it would expand view on its own. However, here is
+                    //is functioning to remove error.
                     inputFeedback.setErrorEnabled(false);
                     String subject=String.valueOf(spinnerOption.getSelectedItem());
                     Intent email = new Intent(Intent.ACTION_SEND);
