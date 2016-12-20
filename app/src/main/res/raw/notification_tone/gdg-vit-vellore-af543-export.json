@@ -1,0 +1,191 @@
+{
+  "events" : [ {
+    "eventDate" : "Date: March 14-15 2017",
+    "eventDescription" : "GDG DevFests are large, community-run events that can offer speaker sessions across multiple product areas, all-day hack-a-thons, code labs, and more. ... GDG DevFests can be organized year round and are community run events.",
+    "eventName" : "Devfest'17",
+    "eventTime" : "Time:12-6pm",
+    "eventVenue" : "Venue:To be announced",
+    "eventpic" : "https://lh3.googleusercontent.com/uYKoyPJ_MnOG5f0xPHPUWIkK7y2rFksB2ZJYRX0f5NQ5W5RNWT8eKmY7MBfdQRd2s3Qn20Oz1QKOra-JBJ04kw-BtHUo6iY=s888"
+  }, {
+    "eventDate" : "Date: 27th Jan 2016",
+    "eventDescription" : "Recruitment drive for 2nd and 3rd year.",
+    "eventName" : "Recruitments Winter Semester 2016",
+    "eventTime" : "Time: 11am",
+    "eventVenue" : "Venue:\n SJT - 404",
+    "eventpic" : "http://www.headhonchos.com/blog/wp-content/uploads/Recruitment-success.jpg"
+  }, {
+    "eventDate" : "Date: 21th March 2016",
+    "eventDescription" : "WomenTechmakers powered by GDG VIT are celebrating Women in Technology on 21st March as the month of March belongs to us, women. \nThe program is going to be a mix of tech and inspirational talks. Demos of Google products, quizzes etc. Eminent speakers and achievers will grace the occasion and inspire the audiences.",
+    "eventName" : "Celebrating Women in Technology - Connect. Create. Celebrate",
+    "eventTime" : "Time: 3pm",
+    "eventVenue" : "Venue:Dr.Homi Bhabha Gallery, SJT, VIT Vellore",
+    "eventpic" : "http://distinguishedyw.org/wp-content/uploads/2014/11/Scholarships.jpg"
+  } ],
+  "faqs" : [ {
+    "answer" : "Web Development, Operaions, UI/UX, Android, Content Writing, Sponsorship, Image Processing, Machine Learning",
+    "question" : "What are our skills?"
+  }, {
+    "answer" : "www.facebook.com/gdgvitvellore",
+    "question" : "What are our facebook link?"
+  }, {
+    "answer" : "Web Development, Operaions, UI/UX, Android, Content Writing, Sponsorship, Image Processing, Machine Learning",
+    "question" : "What are our skills?"
+  }, {
+    "answer" : "www.facebook.com/gdgvitvellore",
+    "question" : "What are our facebook link?"
+  }, {
+    "answer" : "Web Development, Operaions, UI/UX, Android, Content Writing, Sponsorship, Image Processing, Machine Learning",
+    "question" : "What are our skills?"
+  }, {
+    "answer" : "www.facebook.com/gdgvitvellore",
+    "question" : "What are our facebook link?"
+  }, {
+    "answer" : "Web Development, Operaions, UI/UX, Android, Content Writing, Sponsorship, Image Processing, Machine Learning",
+    "question" : "What are our skills?"
+  }, {
+    "answer" : "www.facebook.com/gdgvitvellore",
+    "question" : "What are our facebook link?"
+  } ],
+  "members" : [ {
+    "githubid" : "tanmay777",
+    "name" : "Tanmay",
+    "profile_pic" : "https://yt3.ggpht.com/-WGyXWa5dZbU/AAAAAAAAAAI/AAAAAAAAAAA/cQHBgIRbeb4/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
+    "work" : "Techinal Android"
+  }, {
+    "githubid" : "akanshi",
+    "name" : "Akanshi",
+    "profile_pic" : "https://scontent.fccu2-1.fna.fbcdn.net/v/t1.0-9/14717236_1171762069557871_1192798694077068974_n.jpg?oh=cc14f3f811ea412e31a6c200414bda5f&oe=58B825F0",
+    "work" : "Technical Android"
+  }, {
+    "githubid" : "tanmay777",
+    "name" : "Tanmay",
+    "profile_pic" : "https://yt3.ggpht.com/-WGyXWa5dZbU/AAAAAAAAAAI/AAAAAAAAAAA/cQHBgIRbeb4/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
+    "work" : "Techinal Android"
+  }, {
+    "githubid" : "tanmay777",
+    "name" : "Tanmay",
+    "profile_pic" : "https://yt3.ggpht.com/-WGyXWa5dZbU/AAAAAAAAAAI/AAAAAAAAAAA/cQHBgIRbeb4/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
+    "work" : "Techinal Android"
+  }, {
+    "githubid" : "tanmay777",
+    "name" : "Tanmay",
+    "profile_pic" : "https://yt3.ggpht.com/-WGyXWa5dZbU/AAAAAAAAAAI/AAAAAAAAAAA/cQHBgIRbeb4/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
+    "work" : "Techinal Android"
+  }, {
+    "githubid" : "tanmay777",
+    "name" : "Tanmay",
+    "profile_pic" : "https://yt3.ggpht.com/-WGyXWa5dZbU/AAAAAAAAAAI/AAAAAAAAAAA/cQHBgIRbeb4/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
+    "work" : "Techinal Android"
+  }, {
+    "githubid" : "tanmay777",
+    "name" : "Tanmay",
+    "profile_pic" : "https://yt3.ggpht.com/-WGyXWa5dZbU/AAAAAAAAAAI/AAAAAAAAAAA/cQHBgIRbeb4/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
+    "work" : "Techinal Android"
+  }, {
+    "githubid" : "tanmay777",
+    "name" : "Tanmay",
+    "profile_pic" : "https://yt3.ggpht.com/-WGyXWa5dZbU/AAAAAAAAAAI/AAAAAAAAAAA/cQHBgIRbeb4/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
+    "work" : "Techinal Android"
+  }, {
+    "githubid" : "tanmay777",
+    "name" : "Tanmay",
+    "profile_pic" : "https://yt3.ggpht.com/-WGyXWa5dZbU/AAAAAAAAAAI/AAAAAAAAAAA/cQHBgIRbeb4/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
+    "work" : "Techinal Android"
+  }, {
+    "githubid" : "tanmay777",
+    "name" : "Tanmay",
+    "profile_pic" : "https://yt3.ggpht.com/-WGyXWa5dZbU/AAAAAAAAAAI/AAAAAAAAAAA/cQHBgIRbeb4/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
+    "work" : "Techinal Android"
+  }, {
+    "githubid" : "tanmay777",
+    "name" : "Tanmay",
+    "profile_pic" : "https://yt3.ggpht.com/-WGyXWa5dZbU/AAAAAAAAAAI/AAAAAAAAAAA/cQHBgIRbeb4/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
+    "work" : "Techinal Android"
+  } ],
+  "project" : [ {
+    "projectContributer" : "Contributor: Tanmay, Akanshi",
+    "projectDescription" : "This application is developed for core committee members as well as guests. It displays about all the going projects, upcoming event, FAQ about club etc.",
+    "projectIcon" : "http://njitvector.com/wp-content/uploads/2014/09/googledev.png",
+    "projectName" : "GDG VIT Vellore"
+  }, {
+    "projectContributer" : "Project Leads - Ashwini Purohit , Rishi Raj\nCollaborator - Vishwajeet Jadeja, Balaji, Rajat Mukati",
+    "projectDescription" : "This app in particular takes a ton of load off your head by generating a timetable for you in the way you want it to be. Just select the subjects and slots and it will place it in the best way possible.",
+    "projectIcon" : "http://njitvector.com/wp-content/uploads/2014/09/googledev.png",
+    "projectName" : "My FFCS"
+  }, {
+    "projectContributer" : "Project Leads - Prince Bansal\nCollaborators - Shubhodeep Mukherjee, Sauraj Babu",
+    "projectDescription" : "It is an app made by the android development team of GDG. It consists of all the details you want on the go like your schedule for the day or your attendance in a particular subject. It also shares all your academic details which are shown in your student login.",
+    "projectIcon" : "http://njitvector.com/wp-content/uploads/2014/09/googledev.png",
+    "projectName" : "My VIT"
+  }, {
+    "projectContributer" : "Project Leads - Ashwini Purohit\nCollaborators - Rishi Raj, Anurag Tiwari, Vignesh Shankar, Thiyagaraj",
+    "projectDescription" : "This is a website made by GDG to meet the requirements of people stuck in the Chennai Floods. People shared what help they needed and it was made sure that their demands were catered to with the NGOs working for the relief program.",
+    "projectIcon" : "http://njitvector.com/wp-content/uploads/2014/09/googledev.png",
+    "projectName" : "Relief Chennai"
+  }, {
+    "projectContributer" : "Project Leads - Prince Bansal\nCollaborators - Vignesh Shankar",
+    "projectDescription" : "This app works in the sense that as soon as your smart phone encounters a VIT wifi network, it logs in the user automatically. You just have to save your details once and the app will do the rest.",
+    "projectIcon" : "http://njitvector.com/wp-content/uploads/2014/09/googledev.png",
+    "projectName" : "Volsbb OneTouch"
+  }, {
+    "projectContributer" : "Project Leads - Ashwini Purohit , Rishi Raj\nCollaborators - Yash Mahajan, Ankur Sarode, Piyush, Rahul Krishna, Rajat Mukati, Shubham Bharadwaj, Ujjwal Verma",
+    "projectDescription" : "It is an online platform to find opportunities and even jobs. You get to work on Outsource projects from professionals without paying any premium.",
+    "projectIcon" : "http://njitvector.com/wp-content/uploads/2014/09/googledev.png",
+    "projectName" : "BroSource"
+  } ],
+  "timeline" : [ {
+    "timelineEventDate" : "Date: 18th March 2016",
+    "timelineEventName" : "Connect.Create.Celebrate",
+    "timelineEventPic" : "https://www.tnooz.com/wp-content/uploads/2013/09/connect-world.jpg",
+    "timelineEventTime" : "Time: 3pm",
+    "timelineEventVenue" : "Venue: SJT"
+  }, {
+    "timelineEventDate" : "Date: 27th Jan 2016",
+    "timelineEventName" : "Recruitments Winter Semester 2016",
+    "timelineEventPic" : "http://www.headhonchos.com/blog/wp-content/uploads/Recruitment-success.jpg",
+    "timelineEventTime" : "Time: 11am",
+    "timelineEventVenue" : "Venue: SJT - 404"
+  }, {
+    "timelineEventDate" : "Date: 21th March 2016",
+    "timelineEventName" : "Celebrating Women in Technology - Connect. Create. Celebrate",
+    "timelineEventPic" : "http://distinguishedyw.org/wp-content/uploads/2014/11/Scholarships.jpg",
+    "timelineEventTime" : "Time: 3pm",
+    "timelineEventVenue" : "Venue:Dr.Homi Bhabha Gallery, SJT, VIT Vellore"
+  }, {
+    "timelineEventDate" : "Date: 18th March 2016",
+    "timelineEventName" : "Connect.Create.Celebrate",
+    "timelineEventPic" : "https://www.tnooz.com/wp-content/uploads/2013/09/connect-world.jpg",
+    "timelineEventTime" : "Time: 3pm",
+    "timelineEventVenue" : "Venue: SJT"
+  }, {
+    "timelineEventDate" : "Date: 27th Jan 2016",
+    "timelineEventName" : "Recruitments Winter Semester 2016",
+    "timelineEventPic" : "http://www.headhonchos.com/blog/wp-content/uploads/Recruitment-success.jpg",
+    "timelineEventTime" : "Time: 11am",
+    "timelineEventVenue" : "Venue: SJT - 404"
+  }, {
+    "timelineEventDate" : "Date: 21th March 2016",
+    "timelineEventName" : "Celebrating Women in Technology - Connect. Create. Celebrate",
+    "timelineEventPic" : "http://distinguishedyw.org/wp-content/uploads/2014/11/Scholarships.jpg",
+    "timelineEventTime" : "Time: 3pm",
+    "timelineEventVenue" : "Venue:Dr.Homi Bhabha Gallery, SJT, VIT Vellore"
+  }, {
+    "timelineEventDate" : "Date: 18th March 2016",
+    "timelineEventName" : "Connect.Create.Celebrate",
+    "timelineEventPic" : "https://www.tnooz.com/wp-content/uploads/2013/09/connect-world.jpg",
+    "timelineEventTime" : "Time: 3pm",
+    "timelineEventVenue" : "Venue: SJT"
+  }, {
+    "timelineEventDate" : "Date: 27th Jan 2016",
+    "timelineEventName" : "Recruitments Winter Semester 2016",
+    "timelineEventPic" : "http://www.headhonchos.com/blog/wp-content/uploads/Recruitment-success.jpg",
+    "timelineEventTime" : "Time: 11am",
+    "timelineEventVenue" : "Venue: SJT - 404"
+  }, {
+    "timelineEventDate" : "Date: 21th March 2016",
+    "timelineEventName" : "Celebrating Women in Technology - Connect. Create. Celebrate",
+    "timelineEventPic" : "http://distinguishedyw.org/wp-content/uploads/2014/11/Scholarships.jpg",
+    "timelineEventTime" : "Time: 3pm",
+    "timelineEventVenue" : "Venue:Dr.Homi Bhabha Gallery, SJT, VIT Vellore"
+  } ]
+}

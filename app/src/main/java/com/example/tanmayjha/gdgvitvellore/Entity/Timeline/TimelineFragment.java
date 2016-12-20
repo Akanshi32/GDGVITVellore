@@ -85,3 +85,4 @@ public class TimelineFragment extends Fragment {
 //TODO: Here, when back is press the app should be destroyed.
 //TODO: Presently its reopening the main slide again and again.
 //TODO: Apply view pager concept to Members fragment to have seperate view of developer management board etc
+//TODO: Try nested scroll view instead of recycler view in fragments having scrolling problem.

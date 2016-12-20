@@ -70,13 +70,13 @@ public class AboutUsFragment extends Fragment {
                     //is functioning to remove error.
                     inputFeedback.setErrorEnabled(false);
                     String subject=String.valueOf(spinnerOption.getSelectedItem());
-                    Intent email = new Intent(Intent.ACTION_SEND);
+                    Intent intentEmail = new Intent(Intent.ACTION_SEND);
                     String message=feedback.getText().toString();
-                    email.putExtra(Intent.EXTRA_EMAIL,new String[]{"tanmay.jha1@gmail.com"});
-                    email.putExtra(Intent.EXTRA_SUBJECT, subject);
-                    email.putExtra(Intent.EXTRA_TEXT, message);
-                    email.setType("message/rfc822");
-                    startActivity(Intent.createChooser(email, "Choose an Email client :"));
+                    intentEmail.putExtra(Intent.EXTRA_EMAIL,new String[]{"tanmay.jha1@gmail.com"});
+                    intentEmail.putExtra(Intent.EXTRA_SUBJECT, subject);
+                    intentEmail.putExtra(Intent.EXTRA_TEXT, message);
+                    intentEmail.setType("message/rfc822");
+                    startActivity(Intent.createChooser(intentEmail, "Choose an Email client :"));
                 }
             }
         });
