@@ -1,6 +1,7 @@
 package com.example.tanmayjha.gdgvitvellore.Entity.Members;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,7 +15,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.tanmayjha.gdgvitvellore.Entity.model.MemberModel;
 import com.example.tanmayjha.gdgvitvellore.R;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.firebase.ui.FirebaseRecyclerAdapter;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -26,7 +30,7 @@ public class TechnicalMemberFragment extends Fragment {
 
     RecyclerView mRecyclerView;
     Firebase mRef;
-
+    ProgressDialog mProgressDialog;
     public TechnicalMemberFragment() {
         // Required empty public constructor
     }
@@ -53,8 +57,18 @@ public class TechnicalMemberFragment extends Fragment {
                 Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(TechnicalMemberFragment.MembersViewHolder.profile_pic);
             }
         };
-
         mRecyclerView.setAdapter(adapter);
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                hideProgressDialog();
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
     }
 
@@ -79,4 +93,19 @@ public class TechnicalMemberFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_technical_member, container, false);
     }
 
+
+    void showProgressDialog(){
+        if(mProgressDialog==null){
+            mProgressDialog=new ProgressDialog(getActivity());
+            mProgressDialog.setMessage("Loading");
+            mProgressDialog.setIndeterminate(true);
+        }
+        mProgressDialog.show();
+    }
+
+    private void hideProgressDialog(){
+        if(mProgressDialog!=null && mProgressDialog.isShowing()){
+            mProgressDialog.hide();
+        }
+    }
 }

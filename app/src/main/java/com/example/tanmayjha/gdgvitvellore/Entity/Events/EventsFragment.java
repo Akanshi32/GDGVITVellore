@@ -1,6 +1,7 @@
 package com.example.tanmayjha.gdgvitvellore.Entity.Events;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,7 +16,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.tanmayjha.gdgvitvellore.Entity.model.EventModel;
 import com.example.tanmayjha.gdgvitvellore.R;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.firebase.ui.FirebaseRecyclerAdapter;
 import com.squareup.picasso.Picasso;
 
@@ -26,6 +30,7 @@ public class EventsFragment extends Fragment {
 
     Firebase mRef;
     RecyclerView recyclerView;
+    ProgressDialog mProgressDialog;
 
     public EventsFragment() {
         // Required empty public constructor
@@ -68,6 +73,17 @@ public class EventsFragment extends Fragment {
         };
 
         recyclerView.setAdapter(adapter);
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                hideProgressDialog();
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
     }
 
     public static class EventViewHolder extends RecyclerView.ViewHolder{
@@ -82,6 +98,22 @@ public class EventsFragment extends Fragment {
             eventDate=(TextView)v.findViewById(R.id.event_date);
             eventTime=(TextView)v.findViewById(R.id.event_time);
             eventpic=(ImageView)v.findViewById(R.id.event_image);
+        }
+    }
+
+
+    void showProgressDialog(){
+        if(mProgressDialog==null){
+            mProgressDialog=new ProgressDialog(getActivity());
+            mProgressDialog.setMessage("Loading");
+            mProgressDialog.setIndeterminate(true);
+        }
+        mProgressDialog.show();
+    }
+
+    private void hideProgressDialog(){
+        if(mProgressDialog!=null && mProgressDialog.isShowing()){
+            mProgressDialog.hide();
         }
     }
 

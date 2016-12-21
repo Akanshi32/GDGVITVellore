@@ -89,9 +89,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 toMainActivity.putExtra("personPhotoUrl",personPhotoUrl);
                 Log.e(TAG, "Name: " + personName + ",Image: " + personPhotoUrl);
                 startActivity(toMainActivity);
-            //TODO: For person's photo, it is possible that it may return null value so try catch is needed
-
-            //TODO: Note email will be needed for FAQ
         }
     }
 

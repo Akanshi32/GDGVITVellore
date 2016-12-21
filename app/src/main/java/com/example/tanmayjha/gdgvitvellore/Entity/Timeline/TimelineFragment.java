@@ -1,6 +1,7 @@
 package com.example.tanmayjha.gdgvitvellore.Entity.Timeline;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,12 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.tanmayjha.gdgvitvellore.Entity.model.TimelineModel;
 import com.example.tanmayjha.gdgvitvellore.R;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.firebase.ui.FirebaseRecyclerAdapter;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -25,7 +30,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class TimelineFragment extends Fragment {
     Firebase mRef;
     RecyclerView mRecyclerView;
-
+    ProgressDialog mProgressDialog;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,6 +48,7 @@ public class TimelineFragment extends Fragment {
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_timeline);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        showProgressDialog();
         FirebaseRecyclerAdapter<TimelineModel,TimelineViewHolder> adapter=new FirebaseRecyclerAdapter<TimelineModel,TimelineViewHolder>(
                 TimelineModel.class,
                 R.layout.card_timeline,
@@ -59,7 +65,17 @@ public class TimelineFragment extends Fragment {
             }
         };
         mRecyclerView.setAdapter(adapter);
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                hideProgressDialog();
+            }
 
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
     }
 
     public static class TimelineViewHolder extends RecyclerView.ViewHolder{
@@ -75,6 +91,21 @@ public class TimelineFragment extends Fragment {
             timelineEventPic=(CircleImageView)v.findViewById(R.id.timeline_event_image);
         }
     }
+
+    void showProgressDialog(){
+        if(mProgressDialog==null){
+            mProgressDialog=new ProgressDialog(getActivity());
+            mProgressDialog.setMessage("Loading");
+            mProgressDialog.setIndeterminate(true);
+        }
+        mProgressDialog.show();
+    }
+
+    private void hideProgressDialog(){
+        if(mProgressDialog!=null && mProgressDialog.isShowing()){
+            mProgressDialog.hide();
+        }
+    }
 }
 
 
@@ -82,7 +113,7 @@ public class TimelineFragment extends Fragment {
 //TODO: I can put up an aysnc task which will show a progress bar
 //TODO: of loading data so user doesn't finds an empty screen
 //TODO: when he opens up the app. Also, my main thread will get lighter.
-//TODO: Here, when back is press the app should be destroyed.
-//TODO: Presently its reopening the main slide again and again.
-//TODO: Apply view pager concept to Members fragment to have seperate view of developer management board etc
 //TODO: Try nested scroll view instead of recycler view in fragments having scrolling problem.
+//TODO: Nested Fragment not working Still not working :/
+//TODO: Make Board activity
+//TODO: make real use of splash screen
