@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
@@ -9,8 +10,8 @@
         android:layout_marginTop="20sp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recycler_view_faq"
+        android:id="@+id/recycler_board"
         android:scrollbars="vertical">
     </android.support.v7.widget.RecyclerView>
 
-    </LinearLayout>
+</LinearLayout>

@@ -19,12 +19,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.tanmayjha.gdgvitvellore.Entity.BoardMember.BoardFragment;
+//import com.example.tanmayjha.gdgvitvellore.Entity.BoardMember.BoardFragment1;
 import com.example.tanmayjha.gdgvitvellore.Entity.Events.EventsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.FAQs.FAQsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.LogIn.LoginActivity;
 import com.example.tanmayjha.gdgvitvellore.Entity.Members.TabbedMemberFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Project.ProjectFragment;
-import com.example.tanmayjha.gdgvitvellore.Entity.Organiser.OrganiserFragment;
+//import com.example.tanmayjha.gdgvitvellore.Entity.BoardMember.OrganiserFragment1;
 import com.example.tanmayjha.gdgvitvellore.Entity.Timeline.TimelineFragment;
 import com.example.tanmayjha.gdgvitvellore.R;
 
@@ -181,8 +183,9 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
             title="Members";
         } else if (id == R.id.organiser) {
-            OrganiserFragment organiserFragment =new OrganiserFragment();
-            ft.replace(R.id.container, organiserFragment);
+            BoardFragment boardFragment=new BoardFragment();
+            //OrganiserFragment1 organiserFragment1 =new OrganiserFragment1();
+            ft.replace(R.id.container, boardFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
             title="The Board";

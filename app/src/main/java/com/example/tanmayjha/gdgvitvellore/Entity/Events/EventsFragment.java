@@ -53,7 +53,7 @@ public class EventsFragment extends Fragment {
         recyclerView=(RecyclerView)view.findViewById(R.id.recycler_view_event);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        showProgressDialog();
         FirebaseRecyclerAdapter<EventModel,EventViewHolder> adapter=new FirebaseRecyclerAdapter<EventModel, EventViewHolder>(
                 EventModel.class,
                 R.layout.card_event,

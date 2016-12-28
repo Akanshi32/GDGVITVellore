@@ -52,6 +52,7 @@ public class ProjectFragment extends Fragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_project);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        showProgressDialog();
         FirebaseRecyclerAdapter<ProjectModel, ProjectsViewHolder> adapter=new FirebaseRecyclerAdapter<ProjectModel, ProjectsViewHolder>(
                 ProjectModel.class,
                 R.layout.card_project,

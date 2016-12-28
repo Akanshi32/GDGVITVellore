@@ -50,8 +50,6 @@ public class FeedbackFragment extends Fragment {
                 Intent email = new Intent(Intent.ACTION_SEND);
                 String message=feedback.getText().toString();
                 //TODO: ADD GDG OFFICIAL ID
-                //TODO: HERE i haven't considered the case when the user logs in.
-                //TODO:Then i wouldn't be able to take the email id.
 
                 email.putExtra(Intent.EXTRA_EMAIL,new String[]{"tanmay.jha1@gmail.com"});
                 email.putExtra(Intent.EXTRA_SUBJECT, subject);

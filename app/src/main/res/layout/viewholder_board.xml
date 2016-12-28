@@ -25,7 +25,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:id="@+id/member_image"
+                android:id="@+id/board_member_image"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/gdg"/>
             <LinearLayout
@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:padding="3dp"
                     android:textColor="#FFFFFF"
-                    android:id="@+id/member_name"
+                    android:id="@+id/board_member_name"
                     android:textStyle="bold"
                     android:fontFamily="sans-serif"
                     android:textAllCaps="true"
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:padding="3dp"
                     android:textStyle="bold"
-                    android:id="@+id/desg"
+                    android:id="@+id/board_member_position"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp"
                     android:fontFamily="sans-serif"
@@ -59,8 +59,5 @@
                     />
             </LinearLayout>
         </LinearLayout>
-
     </android.support.v4.widget.NestedScrollView>
-
-
 </LinearLayout>

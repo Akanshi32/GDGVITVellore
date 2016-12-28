@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,7 @@ public class TechnicalMemberFragment extends Fragment {
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_technical_member);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        showProgressDialog();
         FirebaseRecyclerAdapter<MemberModel,TechnicalMemberFragment.MembersViewHolder> adapter=new FirebaseRecyclerAdapter<MemberModel,TechnicalMemberFragment.MembersViewHolder>(
                 MemberModel.class,
                 R.layout.card_member,
@@ -50,11 +52,16 @@ public class TechnicalMemberFragment extends Fragment {
                 mRef.getRef()
         ) {
             @Override
-            protected void populateViewHolder(TechnicalMemberFragment.MembersViewHolder membersViewHolder, MemberModel memberModel, int i) {
+            protected void populateViewHolder(MembersViewHolder membersViewHolder, MemberModel memberModel, int i) {
+                membersViewHolder.profile_pic.setImageDrawable(null);
                 membersViewHolder.name.setText(memberModel.getName());
                 membersViewHolder.work.setText(memberModel.getWork());
                 membersViewHolder.githubid.setText(memberModel.getGithubid());
-                Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(TechnicalMemberFragment.MembersViewHolder.profile_pic);
+                Log.v("From Techincal Fragment",memberModel.getProfile_pic());
+                Glide.with(getActivity()).load(memberModel.getProfile_pic()).
+                        thumbnail(0.5f).
+                        diskCacheStrategy(DiskCacheStrategy.ALL).
+                        into(MembersViewHolder.profile_pic);
             }
         };
         mRecyclerView.setAdapter(adapter);

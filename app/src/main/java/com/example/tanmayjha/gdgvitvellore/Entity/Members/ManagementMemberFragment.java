@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.firebase.ui.FirebaseRecyclerAdapter;
+import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -45,6 +47,7 @@ public class ManagementMemberFragment extends Fragment {
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_management_member);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        showProgressDialog();
         FirebaseRecyclerAdapter<MemberModel,ManagementMemberFragment.MembersViewHolder> adapter=new FirebaseRecyclerAdapter<MemberModel,ManagementMemberFragment.MembersViewHolder>(
                 MemberModel.class,
                 R.layout.card_member,
@@ -56,7 +59,7 @@ public class ManagementMemberFragment extends Fragment {
                 membersViewHolder.name.setText(memberModel.getName());
                 membersViewHolder.work.setText(memberModel.getWork());
                 membersViewHolder.githubid.setText(memberModel.getGithubid());
-                Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(ManagementMemberFragment.MembersViewHolder.profile_pic);
+                Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.5f).into(ManagementMemberFragment.MembersViewHolder.profile_pic);
             }
         };
         mRecyclerView.setAdapter(adapter);

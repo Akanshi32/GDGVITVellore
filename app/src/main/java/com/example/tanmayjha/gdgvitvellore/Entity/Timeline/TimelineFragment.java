@@ -40,6 +40,7 @@ public class TimelineFragment extends Fragment {
     public TimelineFragment() {
         // Required empty public constructor
     }
+    @Override
     public void onStart()
     {
         super.onStart();
@@ -108,11 +109,6 @@ public class TimelineFragment extends Fragment {
     }
 }
 
-
-
-//TODO: I can put up an aysnc task which will show a progress bar
-//TODO: of loading data so user doesn't finds an empty screen
-//TODO: when he opens up the app. Also, my main thread will get lighter.
 //TODO: Try nested scroll view instead of recycler view in fragments having scrolling problem.
 //TODO: Nested Fragment not working Still not working :/
 //TODO: Make Board activity

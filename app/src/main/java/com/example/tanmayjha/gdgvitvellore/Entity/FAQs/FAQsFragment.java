@@ -1,6 +1,7 @@
 package com.example.tanmayjha.gdgvitvellore.Entity.FAQs;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,7 +16,10 @@ import android.widget.TextView;
 import com.example.tanmayjha.gdgvitvellore.Entity.Project.ProjectFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.model.FaqsModel;
 import com.example.tanmayjha.gdgvitvellore.R;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.firebase.ui.FirebaseRecyclerAdapter;
 
 /**
@@ -25,6 +29,7 @@ public class FAQsFragment extends Fragment {
 
     Firebase mRef;
     RecyclerView mRecyclerView;
+    ProgressDialog mProgressDialog;
 
     public FAQsFragment() {
         // Required empty public constructor
@@ -47,6 +52,7 @@ public class FAQsFragment extends Fragment {
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_faq);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        showProgressDialog();
         FirebaseRecyclerAdapter<FaqsModel,FaqsViewHolder> adapter=new FirebaseRecyclerAdapter<FaqsModel, FaqsViewHolder>(
                 FaqsModel.class,
                 R.layout.card_faqs,
@@ -61,6 +67,17 @@ public class FAQsFragment extends Fragment {
         };
 
         mRecyclerView.setAdapter(adapter);
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                hideProgressDialog();
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
     }
 
@@ -72,6 +89,21 @@ public class FAQsFragment extends Fragment {
             super(v);
             question=(TextView)v.findViewById(R.id.question);
             answer=(TextView)v.findViewById(R.id.answer);
+        }
+    }
+
+    void showProgressDialog(){
+        if(mProgressDialog==null){
+            mProgressDialog=new ProgressDialog(getActivity());
+            mProgressDialog.setMessage("Loading");
+            mProgressDialog.setIndeterminate(true);
+        }
+        mProgressDialog.show();
+    }
+
+    private void hideProgressDialog(){
+        if(mProgressDialog!=null && mProgressDialog.isShowing()){
+            mProgressDialog.hide();
         }
     }
 }

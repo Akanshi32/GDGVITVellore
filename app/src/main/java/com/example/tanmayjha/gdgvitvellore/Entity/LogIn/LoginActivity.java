@@ -167,6 +167,4 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
-    //TODO: Check why login is not working when i am putting the startActivity in onStart function and intent values on Handle result
-
    }

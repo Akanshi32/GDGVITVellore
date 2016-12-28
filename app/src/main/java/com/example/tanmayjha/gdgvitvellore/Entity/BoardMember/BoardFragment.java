@@ -1,4 +1,4 @@
-package com.example.tanmayjha.gdgvitvellore.Entity.Members;
+package com.example.tanmayjha.gdgvitvellore.Entity.BoardMember;
 
 
 import android.app.ProgressDialog;
@@ -13,7 +13,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.tanmayjha.gdgvitvellore.Entity.model.MemberModel;
+import com.example.tanmayjha.gdgvitvellore.Entity.Timeline.TimelineFragment;
+import com.example.tanmayjha.gdgvitvellore.Entity.model.BoardModel;
+import com.example.tanmayjha.gdgvitvellore.Entity.model.TimelineModel;
 import com.example.tanmayjha.gdgvitvellore.R;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -23,41 +25,47 @@ import com.firebase.ui.FirebaseRecyclerAdapter;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DesignMemberFragment extends Fragment {
+public class BoardFragment extends Fragment {
 
-    RecyclerView mRecyclerView;
     Firebase mRef;
+    RecyclerView mRecyclerView;
     ProgressDialog mProgressDialog;
 
-    public DesignMemberFragment() {
+    public BoardFragment() {
         // Required empty public constructor
     }
 
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_board, container, false);
+    }
+
+    @Override
     public void onStart()
     {
         super.onStart();
         View view=getView();
-        mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/designmembers");
-        mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_design_member);
+        mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/board");
+        mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_board);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         showProgressDialog();
-        FirebaseRecyclerAdapter<MemberModel,DesignMemberFragment.MembersViewHolder> adapter=new FirebaseRecyclerAdapter<MemberModel,DesignMemberFragment.MembersViewHolder>(
-                MemberModel.class,
-                R.layout.card_member,
-                DesignMemberFragment.MembersViewHolder.class,
+        FirebaseRecyclerAdapter<BoardModel,BoardViewHolder> adapter=new FirebaseRecyclerAdapter<BoardModel,BoardViewHolder>(
+                BoardModel.class,
+                R.layout.card_board_member,
+                BoardFragment.BoardViewHolder.class,
                 mRef.getRef()
         ) {
             @Override
-            protected void populateViewHolder(DesignMemberFragment.MembersViewHolder membersViewHolder, MemberModel memberModel, int i) {
-                membersViewHolder.name.setText(memberModel.getName());
-                membersViewHolder.work.setText(memberModel.getWork());
-                membersViewHolder.githubid.setText(memberModel.getGithubid());
-                Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(DesignMemberFragment.MembersViewHolder.profile_pic);
+            protected void populateViewHolder(BoardFragment.BoardViewHolder boardViewHolder,BoardModel boardModel, int i) {
+                boardViewHolder.name.setText(boardModel.getName());
+                boardViewHolder.position.setText(boardModel.getPosition());
+                Glide.with(getActivity()).load(boardModel.getDisplay_pic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(boardViewHolder.display_pic);
             }
         };
         mRecyclerView.setAdapter(adapter);
@@ -74,28 +82,17 @@ public class DesignMemberFragment extends Fragment {
         });
     }
 
-    public static class MembersViewHolder extends RecyclerView.ViewHolder{
-        TextView name,work,githubid;
-        static CircleImageView profile_pic;
+    public static class BoardViewHolder extends RecyclerView.ViewHolder{
+        TextView name,position;
+        static CircleImageView display_pic;
 
-        public MembersViewHolder(View v) {
+        public BoardViewHolder(View v) {
             super(v);
-            name=(TextView)v.findViewById(R.id.member_name);
-            work=(TextView)v.findViewById(R.id.member_work);
-            githubid=(TextView)v.findViewById(R.id.member_github_id);
-            profile_pic=(CircleImageView)v.findViewById(R.id.member_image);
+            name=(TextView)v.findViewById(R.id.board_member_name);
+            position=(TextView)v.findViewById(R.id.board_member_work);
+            display_pic=(CircleImageView)v.findViewById(R.id.board_member_image);
         }
     }
-
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_design_member, container, false);
-    }
-
 
     void showProgressDialog(){
         if(mProgressDialog==null){
@@ -111,5 +108,4 @@ public class DesignMemberFragment extends Fragment {
             mProgressDialog.hide();
         }
     }
-
 }
