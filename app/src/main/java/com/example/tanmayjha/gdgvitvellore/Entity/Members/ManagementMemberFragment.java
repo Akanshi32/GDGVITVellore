@@ -56,9 +56,11 @@ public class ManagementMemberFragment extends Fragment {
         ) {
             @Override
             protected void populateViewHolder(ManagementMemberFragment.MembersViewHolder membersViewHolder, MemberModel memberModel, int i) {
+                membersViewHolder.profile_pic.setImageDrawable(null);
                 membersViewHolder.name.setText(memberModel.getName());
                 membersViewHolder.work.setText(memberModel.getWork());
                 membersViewHolder.githubid.setText(memberModel.getGithubid());
+                Log.v("From"+"management fragment",memberModel.getProfile_pic());
                 Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.5f).into(ManagementMemberFragment.MembersViewHolder.profile_pic);
             }
         };

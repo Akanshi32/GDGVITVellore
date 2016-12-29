@@ -34,7 +34,6 @@ public class TabbedMemberFragment extends Fragment {
         View view=getView();
         tabLayout=(TabLayout)view.findViewById(R.id.tabs_member_details);
         viewPager=(ViewPager)view.findViewById(R.id.viewpager_member_details);
-
         viewPager.setAdapter(new MembersAdapter(getChildFragmentManager()));
         tabLayout.post(new Runnable() {
             @Override
@@ -42,7 +41,7 @@ public class TabbedMemberFragment extends Fragment {
                 tabLayout.setupWithViewPager(viewPager);
             }
         });
-
+        viewPager.setCurrentItem(1);
     }
 
     class MembersAdapter extends FragmentStatePagerAdapter {

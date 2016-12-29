@@ -111,5 +111,5 @@ public class TimelineFragment extends Fragment {
 
 //TODO: Try nested scroll view instead of recycler view in fragments having scrolling problem.
 //TODO: Nested Fragment not working Still not working :/
-//TODO: Make Board activity
 //TODO: make real use of splash screen
+//TODO: Put share option when and where as required

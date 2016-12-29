@@ -5,12 +5,6 @@
     android:background="#FFFFFF"
     android:paddingLeft="10dp"
     android:paddingRight="10dp">
-    <ImageView
-        android:layout_width="365dp"
-        android:layout_height="200dp"
-        android:src="@drawable/projects"
-        android:layout_marginTop="20dp"
-        android:id="@+id/imageView1" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_marginTop="15sp"

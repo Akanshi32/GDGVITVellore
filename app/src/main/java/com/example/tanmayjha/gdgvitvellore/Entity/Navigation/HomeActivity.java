@@ -22,6 +22,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.tanmayjha.gdgvitvellore.Entity.BoardMember.BoardFragment;
 //import com.example.tanmayjha.gdgvitvellore.Entity.BoardMember.BoardFragment1;
 import com.example.tanmayjha.gdgvitvellore.Entity.Events.EventsFragment;
+import com.example.tanmayjha.gdgvitvellore.Entity.Events.EventsFragmentTest;
 import com.example.tanmayjha.gdgvitvellore.Entity.FAQs.FAQsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.LogIn.LoginActivity;
 import com.example.tanmayjha.gdgvitvellore.Entity.Members.TabbedMemberFragment;
@@ -165,7 +166,7 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
             title="Timeline";
         } else if (id == R.id.events) {
-            EventsFragment eventsFragment=new EventsFragment();
+            EventsFragmentTest eventsFragment=new EventsFragmentTest();
             ft.replace(R.id.container,eventsFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();

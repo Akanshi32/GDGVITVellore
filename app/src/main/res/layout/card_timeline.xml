@@ -37,9 +37,9 @@
                     android:orientation="vertical"
                     android:padding="5dp">
                     <TextView
+                        android:text="Event Name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Event Name"
                         android:id="@+id/timeline_event_name"
                         android:fontFamily="sans-serif"
                         android:textSize="16sp"
