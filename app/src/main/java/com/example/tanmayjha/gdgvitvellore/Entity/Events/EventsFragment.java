@@ -2,6 +2,7 @@ package com.example.tanmayjha.gdgvitvellore.Entity.Events;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,7 +22,7 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.firebase.ui.FirebaseRecyclerAdapter;
-import com.squareup.picasso.Picasso;
+import com.example.tanmayjha.gdgvitvellore.Boundary.Interface.RecyclerItemClickListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,6 +55,7 @@ public class EventsFragment extends Fragment {
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         showProgressDialog();
+
         FirebaseRecyclerAdapter<EventModel,EventViewHolder> adapter=new FirebaseRecyclerAdapter<EventModel, EventViewHolder>(
                 EventModel.class,
                 R.layout.card_event,
@@ -63,11 +65,10 @@ public class EventsFragment extends Fragment {
             @Override
             protected void populateViewHolder(EventViewHolder eventViewHolder, EventModel eventModel, int i) {
                 eventViewHolder.eventName.setText(eventModel.getEventName());
-                eventViewHolder.eventDescription.setText(eventModel.getEventDescription());
+                /*eventViewHolder.eventDescription.setText(eventModel.getEventDescription());
                 eventViewHolder.eventVenue.setText(eventModel.getEventVenue());
                 eventViewHolder.eventDate.setText(eventModel.getEventDate());
-                eventViewHolder.eventTime.setText(eventModel.getEventTime());
-                Picasso.with(getActivity()).load(EventModel.getEventpic()).into(EventViewHolder.eventpic);
+                eventViewHolder.eventTime.setText(eventModel.getEventTime());*/
                 Glide.with(getActivity()).load(eventModel.getEventpic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(EventViewHolder.eventpic);
             }
         };
@@ -84,6 +85,20 @@ public class EventsFragment extends Fragment {
 
             }
         });
+
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent intent=new Intent(getActivity(),EventActivity.class);
+                intent.putExtra("position",position);
+                startActivity(intent);
+
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+            }
+        }));
     }
 
     public static class EventViewHolder extends RecyclerView.ViewHolder{
@@ -93,10 +108,10 @@ public class EventsFragment extends Fragment {
         public EventViewHolder(View v){
             super(v);
             eventName=(TextView)v.findViewById(R.id.event_name);
-            eventDescription=(TextView)v.findViewById(R.id.event_description);
+            /*eventDescription=(TextView)v.findViewById(R.id.event_description);
             eventVenue=(TextView)v.findViewById(R.id.event_venue);
             eventDate=(TextView)v.findViewById(R.id.event_date);
-            eventTime=(TextView)v.findViewById(R.id.event_time);
+            eventTime=(TextView)v.findViewById(R.id.event_time);*/
             eventpic=(ImageView)v.findViewById(R.id.event_image);
         }
     }
