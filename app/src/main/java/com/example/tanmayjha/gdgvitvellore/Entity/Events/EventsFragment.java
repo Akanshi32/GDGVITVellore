@@ -65,10 +65,6 @@ public class EventsFragment extends Fragment {
             @Override
             protected void populateViewHolder(EventViewHolder eventViewHolder, EventModel eventModel, int i) {
                 eventViewHolder.eventName.setText(eventModel.getEventName());
-                /*eventViewHolder.eventDescription.setText(eventModel.getEventDescription());
-                eventViewHolder.eventVenue.setText(eventModel.getEventVenue());
-                eventViewHolder.eventDate.setText(eventModel.getEventDate());
-                eventViewHolder.eventTime.setText(eventModel.getEventTime());*/
                 Glide.with(getActivity()).load(eventModel.getEventpic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(EventViewHolder.eventpic);
             }
         };

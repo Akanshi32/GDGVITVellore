@@ -32,8 +32,13 @@ public class EventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_action_back));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +70,6 @@ public class EventActivity extends AppCompatActivity {
                 eventTime=eventTimeSnapshot.getValue(String.class);
                 eventPic=eventPicSnapshot.getValue(String.class);
                 eventDescription=eventDescriptionSnapshot.getValue(String.class);
-                Toast.makeText(getApplicationContext(),eventName+eventDate+eventDescription+eventVenue+eventPic+eventTime,Toast.LENGTH_LONG).show();
                 setValues();
             }
 
@@ -74,8 +78,6 @@ public class EventActivity extends AppCompatActivity {
 
             }
         });
-
-
         collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
     }

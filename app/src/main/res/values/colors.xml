@@ -11,6 +11,16 @@
     <color name="bg_screen3">#3395ff</color>
     <color name="bg_screen4">#c873f4</color>
 
+    <color name="events">#F44336</color>
+    <color name="eventname">#009587</color>
+    <color name="eventnamepressed">#ff006557</color>
+    <color name="pressed">#B71C1C</color>
+
+    <color name="gray">#ffe0e0e0</color>
+    <color name="dgray">#ff5d5d5d</color>
+    <color name="ddgray">#ff424242</color>
+    <color name="dddgray">#de000000</color>
+
     <!-- dots inactive colors -->
     <color name="dot_dark_screen1">#d1395c</color>
     <color name="dot_dark_screen2">#14a895</color>

@@ -29,6 +29,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Entity.ContactUs.GdgWebViewActivity"
+            android:label="GDG VIT Vellore"
+            android:theme="@style/AppTheme">
+        </activity>
         <!--
         <activity
             android:name=".Entity.LogIn.SignUpActivityUsingFirebase"
@@ -51,6 +55,10 @@
         <activity
             android:name=".Entity.Events.EventActivity"
             android:label="@string/title_activity_event"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Entity.Project.ProjectActivity"
+            android:label="@string/title_activity_project"
             android:theme="@style/AppTheme"></activity>
     </application>
 

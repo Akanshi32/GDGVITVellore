@@ -21,13 +21,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.tanmayjha.gdgvitvellore.Entity.BoardMember.BoardFragment;
 //import com.example.tanmayjha.gdgvitvellore.Entity.BoardMember.BoardFragment1;
+import com.example.tanmayjha.gdgvitvellore.Entity.ContactUs.ContactUsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Events.EventsFragment;
-import com.example.tanmayjha.gdgvitvellore.Entity.Events.EventsFragmentTest;
 import com.example.tanmayjha.gdgvitvellore.Entity.FAQs.FAQsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.LogIn.LoginActivity;
 import com.example.tanmayjha.gdgvitvellore.Entity.Members.TabbedMemberFragment;
-import com.example.tanmayjha.gdgvitvellore.Entity.Project.ProjectFragment;
 //import com.example.tanmayjha.gdgvitvellore.Entity.BoardMember.OrganiserFragment1;
+import com.example.tanmayjha.gdgvitvellore.Entity.Project.ProjectFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Timeline.TimelineFragment;
 import com.example.tanmayjha.gdgvitvellore.R;
 
@@ -166,7 +166,7 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
             title="Timeline";
         } else if (id == R.id.events) {
-            EventsFragmentTest eventsFragment=new EventsFragmentTest();
+            EventsFragment eventsFragment=new EventsFragment();
             ft.replace(R.id.container,eventsFragment);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
@@ -197,6 +197,10 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
             title="About Us";
         } else if (id == R.id.contact_us) {
+            ContactUsFragment contactUsFragment=new ContactUsFragment();
+            ft.replace(R.id.container,contactUsFragment);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.commit();
             title="Contact Us";
         }
         else if (id == R.id.faqs) {
@@ -235,5 +239,28 @@ public class HomeActivity extends AppCompatActivity
         // An unresolvable error has occurred and Google APIs (including Sign-In) will not
         // be available.
         Log.d(TAG, "onConnectionFailed: " + connectionResult);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mGoogleApiClient.stopAutoManage(this);
+        mGoogleApiClient.disconnect();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
+            mGoogleApiClient.stopAutoManage(this);
+            mGoogleApiClient.disconnect();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mGoogleApiClient.stopAutoManage(this);
+        mGoogleApiClient.disconnect();
     }
 }
