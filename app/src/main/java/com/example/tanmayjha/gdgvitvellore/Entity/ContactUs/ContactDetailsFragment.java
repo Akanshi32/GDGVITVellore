@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +57,7 @@ public class ContactDetailsFragment extends Fragment implements View.OnClickList
         contentView.setOnClickListener(this);
         webFab=(FloatingActionButton)view.findViewById(R.id.web_fab);
         webFab.setOnClickListener(this);
-        visitUsText.setTextColor(getResources().getColor(R.color.colorPrimary));
+        visitUsText.setTextColor(ContextCompat.getColor(getActivity(),R.color.colorPrimary));
         content.setText("VIT Vellore,\nVellore, TN 632014");
         visitUsView.setOnClickListener(this);
         callUsView.setOnClickListener(this);
@@ -66,25 +67,25 @@ public class ContactDetailsFragment extends Fragment implements View.OnClickList
     @Override
     public void onClick(View v) {
         if(v.getId()== R.id.visit_us){
-            visitUsText.setTextColor(getResources().getColor(R.color.colorPrimary));
-            callUsText.setTextColor(getResources().getColor(R.color.dgray));
-            mailUsText.setTextColor(getResources().getColor(R.color.dgray));
+            visitUsText.setTextColor(ContextCompat.getColor(getActivity(),R.color.colorPrimary));
+            callUsText.setTextColor(ContextCompat.getColor(getActivity(),R.color.dgray));
+            mailUsText.setTextColor(ContextCompat.getColor(getActivity(),R.color.dgray));
             content.setText("VIT Vellore,\nVellore, TN 632014");
             Animation animation = AnimationUtils.loadAnimation(getActivity(),android.R.anim.fade_in);
             contentView.startAnimation(animation);
         }
         if(v.getId()== R.id.mail_us){
-            visitUsText.setTextColor(getResources().getColor(R.color.dgray));
-            callUsText.setTextColor(getResources().getColor(R.color.dgray));
-            mailUsText.setTextColor(getResources().getColor(R.color.colorPrimary));
+            visitUsText.setTextColor(ContextCompat.getColor(getActivity(),R.color.dgray));
+            callUsText.setTextColor(ContextCompat.getColor(getActivity(),R.color.dgray));
+            mailUsText.setTextColor(ContextCompat.getColor(getActivity(),R.color.colorPrimary));
             content.setText("gdgvitvellore@gmail.com");
             Animation animation = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in);
             contentView.startAnimation(animation);
         }
         if(v.getId()== R.id.call_us){
-            visitUsText.setTextColor(getResources().getColor(R.color.dgray));
-            callUsText.setTextColor(getResources().getColor(R.color.colorPrimary));
-            mailUsText.setTextColor(getResources().getColor(R.color.dgray));
+            visitUsText.setTextColor(ContextCompat.getColor(getActivity(),R.color.dgray));
+            callUsText.setTextColor(ContextCompat.getColor(getActivity(),R.color.colorPrimary));
+            mailUsText.setTextColor(ContextCompat.getColor(getActivity(),R.color.dgray));
             content.setText("0416-2320145");
             Animation animation = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in);
             contentView.startAnimation(animation);

@@ -1,4 +1,4 @@
-package com.example.tanmayjha.gdgvitvellore.Entity;
+package com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.app;
 
 /**
  * Created by tanmay jha on 20-12-2016.

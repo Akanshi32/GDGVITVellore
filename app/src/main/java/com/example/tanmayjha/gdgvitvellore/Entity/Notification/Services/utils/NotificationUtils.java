@@ -1,6 +1,5 @@
-package com.example.tanmayjha.gdgvitvellore.Entity.utils;
+package com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.utils;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -20,14 +19,11 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.util.Patterns;
 
-import com.example.tanmayjha.gdgvitvellore.Entity.Config;
+import com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.app.Config;
 import com.example.tanmayjha.gdgvitvellore.R;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.ParseException;
@@ -94,22 +90,22 @@ public class NotificationUtils {
         //CHECK THIS. It may not work because here our location of package is different from normal case.
         //This will work fine because mContext.getPackageName() returns com.example.tanmayjha.gdgvitvellore from anywhere
 
-        if(!TextUtils.isEmpty(imageurl)){
-            if(imageurl!=null&&imageurl.length()>4 && Patterns.WEB_URL.matcher(imageurl).matches());
-            //Patterns.WEB_URL.matcher(url).matches(), Checks only if url has valid syntax, i.e url like: 000:/some.url will be not valid.
-            Bitmap bitmap=getBitmapFromURL(imageurl);
+        if(!TextUtils.isEmpty(imageurl)) {
+            if (imageurl != null && imageurl.length() > 4 && Patterns.WEB_URL.matcher(imageurl).matches()) {
+                //Patterns.WEB_URL.matcher(url).matches(), Checks only if url has valid syntax, i.e url like: 000:/some.url will be not valid.
+                Bitmap bitmap = getBitmapFromURL(imageurl);
 
-            if(bitmap!=null){
-                showBigNotification(bitmap,mBuilder,icon,title,message,timeStamp,resultPendingIntent,alarmSound);
+                if (bitmap != null) {
+                    showBigNotification(bitmap, mBuilder, icon, title, message, timeStamp, resultPendingIntent, alarmSound);
+                } else {
+                    showSmallNotification(mBuilder, icon, title, message, timeStamp, resultPendingIntent, alarmSound);
+                }
             }
-            else {
-                showSmallNotification(mBuilder,icon,title,message,timeStamp,resultPendingIntent,alarmSound);
             }
-        }else {
-            showSmallNotification(mBuilder,icon,title,message,timeStamp,resultPendingIntent,alarmSound);
-            playNotificationSound();
-        }
-
+        else {
+                showSmallNotification(mBuilder, icon, title, message, timeStamp, resultPendingIntent, alarmSound);
+                playNotificationSound();
+            }
     }
 
     private void showBigNotification(Bitmap bitmap, NotificationCompat.Builder mBuilder, int icon, String title, String message, String timeStamp, PendingIntent resultPendingIntent, Uri alarmSound) {
