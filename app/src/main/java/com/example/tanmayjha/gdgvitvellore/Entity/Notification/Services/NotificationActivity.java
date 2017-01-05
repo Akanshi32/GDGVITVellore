@@ -10,9 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tanmayjha.gdgvitvellore.Entity.Navigation.HomeActivity;
 import com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.app.Config;
 import com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.utils.NotificationUtils;
 import com.example.tanmayjha.gdgvitvellore.R;
@@ -22,34 +25,39 @@ public class NotificationActivity extends AppCompatActivity {
     private static final String TAG=NotificationActivity.class.getSimpleName();
     private BroadcastReceiver mRegistrationBroadcastReceiver;
     private TextView registrationID,textMessage;
+    Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
 
-        registrationID=(TextView)findViewById(R.id.txt_reg_id);
+        //registrationID=(TextView)findViewById(R.id.txt_reg_id);
         textMessage=(TextView)findViewById(R.id.txt_push_message);
-
-        mRegistrationBroadcastReceiver=new BroadcastReceiver() {
+//        IntentFilter intentFilter=new IntentFilter();
+//        intentFilter.addAction(Config.REGISTRATION_COMPLETE);
+//        intentFilter.addAction(Config.PUSH_NOTIFICATION);
+//        LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver,intentFilter);
+        Intent intent=getIntent();
+        if(intent.getIntExtra("type",10)==0)
+        {
+            FirebaseMessaging.getInstance().subscribeToTopic(Config.TOPIC_GLOBAL);
+          //  displayFirebaseRegId();
+        }
+        else {
+            String message=intent.getStringExtra("message");
+            Toast.makeText(getApplicationContext(),"Push notification: "+message,Toast.LENGTH_LONG).show();
+            textMessage.setText(message);
+        }
+        //displayFirebaseRegId();
+        backButton=(Button)findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onReceive(Context context, Intent intent) {
-                //checking for type intent filter
-                if(intent.getAction().equals(Config.REGISTRATION_COMPLETE)){
-                    //gcm successfully registered
-                    //now subscribe to global topic to recieve app wide notifications
-                    FirebaseMessaging.getInstance().subscribeToTopic(Config.TOPIC_GLOBAL);
-                    displayFirebaseRegId();
-                    } else if (intent.getAction().equals(Config.PUSH_NOTIFICATION)){
-                    //new push notification is recieved
-
-                    String message=intent.getStringExtra("message");
-                    Toast.makeText(getApplicationContext(),"Push notification: "+message,Toast.LENGTH_LONG).show();
-                    textMessage.setText(message);
-                }
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
+                startActivity(intent);
             }
-        };
-        displayFirebaseRegId();
+        });
     }
 
     //fetches reg id from shared preferences

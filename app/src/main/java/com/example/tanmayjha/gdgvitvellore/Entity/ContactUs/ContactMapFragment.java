@@ -63,7 +63,7 @@ public class ContactMapFragment extends Fragment implements View.OnClickListener
                         .position(new LatLng(12.969129, 79.155787))
                         .title("GDG VIT Vellore"));
                 LatLng coordinate = new LatLng(12.969129, 79.155787);
-                CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(coordinate, 5);
+                CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(coordinate,10);
                 googleMap.animateCamera(yourLocation);
             }
         });

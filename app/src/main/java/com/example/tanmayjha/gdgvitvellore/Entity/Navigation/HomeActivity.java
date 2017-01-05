@@ -3,11 +3,13 @@ package com.example.tanmayjha.gdgvitvellore.Entity.Navigation;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -31,6 +33,7 @@ import com.example.tanmayjha.gdgvitvellore.Entity.Members.TabbedMemberFragment;
 //import com.example.tanmayjha.gdgvitvellore.Entity.BoardMember.OrganiserFragment1;
 import com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.NotificationActivity;
 import com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.app.Config;
+import com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.utils.NotificationUtils;
 import com.example.tanmayjha.gdgvitvellore.Entity.Project.ProjectFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Timeline.TimelineFragment;
 import com.example.tanmayjha.gdgvitvellore.R;
@@ -80,16 +83,22 @@ public class HomeActivity extends AppCompatActivity
         ft.replace(R.id.container,timelineFragment);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.commit();
-
+//        IntentFilter intentFilter=new IntentFilter();
+//        intentFilter.addAction(Config.REGISTRATION_COMPLETE);
+//        intentFilter.addAction(Config.PUSH_NOTIFICATION);
+//        LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver,intentFilter);
         mRegistrationBroadcastReceiver=new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 if(intent.getAction().equals(Config.REGISTRATION_COMPLETE)) {
                     Intent intent1 = new Intent(getApplication(), NotificationActivity.class);
+                    intent1.putExtra("type",0);
                     startActivity(intent1);
                 }
                 else if (intent.getAction().equals(Config.PUSH_NOTIFICATION)){
                     Intent intent1 = new Intent(getApplication(), NotificationActivity.class);
+                    intent1.putExtra("message",intent.getStringExtra("message"));
+                    intent1.putExtra("type",1);
                     startActivity(intent1);
                 }
             }
@@ -266,6 +275,7 @@ public class HomeActivity extends AppCompatActivity
     @Override
     public void onPause() {
         super.onPause();
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mRegistrationBroadcastReceiver);
         mGoogleApiClient.stopAutoManage(this);
         mGoogleApiClient.disconnect();
     }
@@ -285,4 +295,23 @@ public class HomeActivity extends AppCompatActivity
         mGoogleApiClient.stopAutoManage(this);
         mGoogleApiClient.disconnect();
     }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+
+        //register GCM registration complete receiver
+        LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver,
+                new IntentFilter(Config.REGISTRATION_COMPLETE));
+
+        //register new push message receiver
+        //by doing this, the activity will be notified each time a new message arrives
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver,
+                new IntentFilter(Config.PUSH_NOTIFICATION));
+
+        //clear the notification area when the app is opened
+        NotificationUtils.clearNotifications(getApplicationContext());
+    }
+
 }
