@@ -1,5 +1,6 @@
 package com.example.tanmayjha.gdgvitvellore.Entity.ContactUs;
 
+import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -48,7 +49,9 @@ public class GdgWebViewActivity extends AppCompatActivity implements View.OnClic
         }
         else
         actionBar.setTitle(heading);
-
+        browser.getSettings().setSupportZoom(true);
+        browser.getSettings().setBuiltInZoomControls(true);
+        browser.getSettings().setDisplayZoomControls(true);
         browser.setWebViewClient(new MyBrowser());
         browser.getSettings().setLoadsImagesAutomatically(true);
         browser.getSettings().setJavaScriptEnabled(true);
@@ -69,6 +72,13 @@ public class GdgWebViewActivity extends AppCompatActivity implements View.OnClic
     }
 
     private class MyBrowser extends WebViewClient {
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             view.loadUrl(url);

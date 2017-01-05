@@ -1,5 +1,7 @@
 package com.example.tanmayjha.gdgvitvellore.Entity.Navigation;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -27,6 +29,8 @@ import com.example.tanmayjha.gdgvitvellore.Entity.FAQs.FAQsFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.LogIn.LoginActivity;
 import com.example.tanmayjha.gdgvitvellore.Entity.Members.TabbedMemberFragment;
 //import com.example.tanmayjha.gdgvitvellore.Entity.BoardMember.OrganiserFragment1;
+import com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.NotificationActivity;
+import com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.app.Config;
 import com.example.tanmayjha.gdgvitvellore.Entity.Project.ProjectFragment;
 import com.example.tanmayjha.gdgvitvellore.Entity.Timeline.TimelineFragment;
 import com.example.tanmayjha.gdgvitvellore.R;
@@ -40,6 +44,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -50,6 +55,7 @@ public class HomeActivity extends AppCompatActivity
     String TAG=getClass().getSimpleName();
     String personPhotoUrl;
     FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+    private BroadcastReceiver mRegistrationBroadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +71,8 @@ public class HomeActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        FirebaseMessaging.getInstance().subscribeToTopic("global");
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -72,6 +80,20 @@ public class HomeActivity extends AppCompatActivity
         ft.replace(R.id.container,timelineFragment);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.commit();
+
+        mRegistrationBroadcastReceiver=new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if(intent.getAction().equals(Config.REGISTRATION_COMPLETE)) {
+                    Intent intent1 = new Intent(getApplication(), NotificationActivity.class);
+                    startActivity(intent1);
+                }
+                else if (intent.getAction().equals(Config.PUSH_NOTIFICATION)){
+                    Intent intent1 = new Intent(getApplication(), NotificationActivity.class);
+                    startActivity(intent1);
+                }
+            }
+        };
 
         Intent fromLogin=getIntent();
         personName=fromLogin.getStringExtra("personName");

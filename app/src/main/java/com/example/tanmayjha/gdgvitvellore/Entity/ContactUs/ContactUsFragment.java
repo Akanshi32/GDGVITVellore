@@ -50,7 +50,7 @@ public class ContactUsFragment extends Fragment {
             switch (position)
             {
                 case 0: return new ContactDetailsFragment();
-                case 1: return new ContactDetailsFragment();
+                case 1: return new ContactMapFragment();
             }
             return null;
         }

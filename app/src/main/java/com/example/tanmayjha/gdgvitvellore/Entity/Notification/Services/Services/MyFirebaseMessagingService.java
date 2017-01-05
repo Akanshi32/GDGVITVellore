@@ -70,7 +70,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         try{
             JSONObject data=json.getJSONObject("data");
             String title=data.getString("title");
-            String message=data.getString("message");
+            String message=data.getString("messaxge");
             boolean isBackground=data.getBoolean("is_background");
             String imageUrl=data.getString("image");
             String timestamp=data.getString("timestamp");
@@ -100,6 +100,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 if(TextUtils.isEmpty(imageUrl))
                 {
                     showNotificationMessage(getApplicationContext(),title,message,timestamp,resultIntent);
+                }
+                else {
+                    // image is present, show notification with image
+                    showNotificationMessageWithBigImage(getApplicationContext(), title, message, timestamp, resultIntent, imageUrl);
                 }
             }
         }catch(JSONException e){

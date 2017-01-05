@@ -7,17 +7,26 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.tanmayjha.gdgvitvellore.R;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.melnykov.fab.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-/*public class ContactMapFragment extends Fragment implements View.OnClickListener{
+public class ContactMapFragment extends Fragment implements View.OnClickListener{
+    private GoogleMap mMap;
     SupportMapFragment mMapFragment;
     FloatingActionButton fab;
 
@@ -37,29 +46,27 @@ import com.melnykov.fab.FloatingActionButton;
     public void onStart()
     {
         super.onStart();
-        mMapFragment = SupportMapFragment.newInstance();
+        View rootView=getView();
         fab=(FloatingActionButton)rootView.findViewById(R.id.fab);
         fab.setOnClickListener(this);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        FragmentTransaction fragmentTransaction =
-                getFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.maplayout, mMapFragment);
-        fragmentTransaction.commit();
-        mMapFragment.getMapAsync(this);
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(12.969129, 79.155787))
-                .title("GDG VIT Vellore"));
-        LatLng coordinate = new LatLng(12.969129, 79.155787);
-        CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(coordinate, 5);
-        googleMap.animateCamera(yourLocation);
-
+        mMapFragment=(SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.map);
+        mMapFragment.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                Log.v("Map Fragment","check");
+                mMap=googleMap;
+                mMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(12.969129, 79.155787))
+                        .title("GDG VIT Vellore"));
+                LatLng coordinate = new LatLng(12.969129, 79.155787);
+                CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(coordinate, 5);
+                googleMap.animateCamera(yourLocation);
+            }
+        });
     }
 
     @Override
@@ -70,4 +77,3 @@ import com.melnykov.fab.FloatingActionButton;
     }
 
 }
-*/
