@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.example.tanmayjha.gdgvitvellore.Entity.Navigation.HomeActivity;
 import com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.app.Config;
 import com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.NotificationActivity;
 import com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.utils.NotificationUtils;
@@ -14,6 +16,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
 
 /**
  * Created by tanmay jha on 31-12-2016.
@@ -33,7 +36,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         //check if message contains a notification payload
         if(remoteMessage.getNotification()!=null){
             Log.e(TAG,"Notification body:"+remoteMessage.getNotification().getBody());
-            handleNotification(remoteMessage.getNotification().getBody());
+            handleNotification(remoteMessage.getNotification().getBody(),remoteMessage.getNotification().getTitle(),remoteMessage.getData().get("image_url"));
+            Log.v("MessagingService",remoteMessage.getNotification().getTitle());
         }
 
         //check if message contains a data payload
@@ -49,19 +53,28 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
     }
 
-    private void handleNotification(String message) {
+    private void handleNotification(String message,String title,String imageUrl) {
+
         if(!NotificationUtils.isAppIsInBackground(getApplicationContext())){
-            // app is in foreground,broadcast the push message
             Intent pushNotifaction= new Intent(Config.PUSH_NOTIFICATION);
             pushNotifaction.putExtra("message",message);
-            LocalBroadcastManager.getInstance(this).sendBroadcast(pushNotifaction);
+            pushNotifaction.putExtra("title",title);
+            pushNotifaction.putExtra("imageUrl",imageUrl);
 
             //play notification sound
             NotificationUtils notificationUtils = new NotificationUtils(getApplicationContext());
             notificationUtils.playNotificationSound();
+
+            LocalBroadcastManager.getInstance(this).sendBroadcast(pushNotifaction);
+
+            // app is in foreground,broadcast the push message
         }else{
+            Intent intent=new Intent(this, HomeActivity.class);
+            startActivity(intent);
             //if app is in background, then firebase itself handles the notification
         }
+        Log.v("Messaging Service","check");
+        Toast.makeText(this,"Check", Toast.LENGTH_SHORT).show();
     }
 
     private void handleDataMessage(JSONObject json){

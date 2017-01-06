@@ -13,12 +13,15 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -59,6 +62,8 @@ public class HomeActivity extends AppCompatActivity
     String personPhotoUrl;
     FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
     private BroadcastReceiver mRegistrationBroadcastReceiver;
+    AlertDialog.Builder alertDialogBuilder;
+    AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,19 +96,20 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public void onReceive(Context context, Intent intent) {
                 if(intent.getAction().equals(Config.REGISTRATION_COMPLETE)) {
-                    Intent intent1 = new Intent(getApplication(), NotificationActivity.class);
-                    intent1.putExtra("type",0);
-                    startActivity(intent1);
+//                    Intent intent1 = new Intent(getApplication(), NotificationActivity.class);
+//                    intent1.putExtra("type",0);
+//                    startActivity(intent1);
                 }
                 else if (intent.getAction().equals(Config.PUSH_NOTIFICATION)){
-                    Intent intent1 = new Intent(getApplication(), NotificationActivity.class);
-                    intent1.putExtra("message",intent.getStringExtra("message"));
-                    intent1.putExtra("type",1);
-                    startActivity(intent1);
+                    createdialog(intent);
+//                    Intent intent1 = new Intent(getApplication(), NotificationActivity.class);
+//                    intent1.putExtra("message",intent.getStringExtra("message"));
+//                    intent1.putExtra("type",1);
+//                    startActivity(intent1);
                 }
             }
-        };
 
+        };
         Intent fromLogin=getIntent();
         personName=fromLogin.getStringExtra("personName");
         personPhotoUrl=fromLogin.getStringExtra("personPhotoUrl");
@@ -113,6 +119,34 @@ public class HomeActivity extends AppCompatActivity
         CircleImageView personImage=(CircleImageView)hView.findViewById(R.id.person_image);
         name.setText(personName);
         Glide.with(getApplicationContext()).load(personPhotoUrl).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(personImage);
+    }
+
+    private void createdialog(Intent intent) {
+        alertDialogBuilder=new AlertDialog.Builder(this);
+        alertDialogBuilder.setIcon(R.drawable.gdg_logo);
+        alertDialogBuilder.setCancelable(true);
+        Log.v("HomeActivity",intent.getStringExtra("message"));
+        alertDialogBuilder.setMessage(intent.getStringExtra("message"));
+        if(intent.getStringExtra("title")!=null)
+            alertDialogBuilder.setTitle(intent.getStringExtra("title"));
+        else
+            alertDialogBuilder.setTitle("Notification:");
+        if (intent.getStringExtra("imageUrl")!=null)
+        {
+            LayoutInflater factory = LayoutInflater.from(this);
+            final View view = factory.inflate(R.layout.alert_box_dialog, null);
+            Glide.with(getApplicationContext()).load(intent.getStringExtra("imageUrl")).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into((ImageView)view.findViewById(R.id.dialog_imageview));
+            alertDialogBuilder.setView(view);
+        }
+        else
+        {
+            ImageView imageView=new ImageView(getApplicationContext());
+            imageView.setImageResource(R.drawable.gdg);
+            alertDialogBuilder.setView(imageView);
+
+        }
+        alertDialog=alertDialogBuilder.create();
+        alertDialog.show();
     }
 
     @Override
