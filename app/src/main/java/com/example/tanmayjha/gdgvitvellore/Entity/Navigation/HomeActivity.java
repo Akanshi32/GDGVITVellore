@@ -113,7 +113,7 @@ public class HomeActivity extends AppCompatActivity
         Intent fromLogin=getIntent();
         personName=fromLogin.getStringExtra("personName");
         personPhotoUrl=fromLogin.getStringExtra("personPhotoUrl");
-        Log.v("Person's name on MA",personName);
+        Log.v("Person's name",personName);
         View hView =  navigationView.getHeaderView(0);
         TextView name=(TextView)hView.findViewById(R.id.person_name);
         CircleImageView personImage=(CircleImageView)hView.findViewById(R.id.person_image);

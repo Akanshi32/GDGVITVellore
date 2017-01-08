@@ -17,6 +17,7 @@ import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 
 import com.example.tanmayjha.gdgvitvellore.Entity.Notification.Services.app.Config;
@@ -94,10 +95,12 @@ public class NotificationUtils {
             if (imageurl != null && imageurl.length() > 4 && Patterns.WEB_URL.matcher(imageurl).matches()) {
                 //Patterns.WEB_URL.matcher(url).matches(), Checks only if url has valid syntax, i.e url like: 000:/some.url will be not valid.
                 Bitmap bitmap = getBitmapFromURL(imageurl);
-
+                Log.v("Notification Utils","Check 5");
                 if (bitmap != null) {
+                    Log.v("Notification Utils","Check 6");
                     showBigNotification(bitmap, mBuilder, icon, title, message, timeStamp, resultPendingIntent, alarmSound);
                 } else {
+                    Log.v("Notification Utils","Check 7");
                     showSmallNotification(mBuilder, icon, title, message, timeStamp, resultPendingIntent, alarmSound);
                 }
             }
@@ -119,6 +122,7 @@ public class NotificationUtils {
                 .setContentTitle(title)
                 .setContentIntent(resultPendingIntent)
                 .setSound(alarmSound)
+                //Notification text is not completely showing when viewed as a whole.
                 .setStyle(bigPictureStyle)
                 .setWhen(getTimeMilliSec(timeStamp))
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -127,7 +131,6 @@ public class NotificationUtils {
                 .build();
         NotificationManager notificationManager=(NotificationManager)mContext.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(Config.NOTIFICATION_ID_BIG_IMAGE,notification);
-
     }
 
     private void showSmallNotification(NotificationCompat.Builder mBuilder, int icon, String title, String message, String timeStamp, PendingIntent resultPendingIntent, Uri alarmSound) {

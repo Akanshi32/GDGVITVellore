@@ -26,42 +26,50 @@
         <activity
             android:name=".Entity.Navigation.HomeActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+            </activity>
         <activity
             android:name=".Entity.LogIn.LoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
 
         </activity>
 
         <activity
             android:name=".Entity.SplashScreen.SplashScreenActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity
             android:name=".Entity.ContactUs.GdgWebViewActivity"
             android:label="GDG VIT Vellore"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"></activity>
 
-        <activity android:name=".Entity.IntroSlider.IntroSliderActivity" />
+        <activity android:name=".Entity.IntroSlider.IntroSliderActivity"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".Entity.Events.EventActivity"
             android:label="@string/title_activity_event"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Entity.Project.ProjectActivity"
             android:label="@string/title_activity_project"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".Entity.Notification.Services.NotificationActivity">
+        <activity android:name=".Entity.Notification.Services.NotificationActivity"
+            android:screenOrientation="portrait">
         </activity>
 
         <!-- Firebase Notifications -->
