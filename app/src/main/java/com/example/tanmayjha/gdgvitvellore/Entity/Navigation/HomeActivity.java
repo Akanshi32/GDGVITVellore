@@ -57,6 +57,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,GoogleApiClient.OnConnectionFailedListener{
     String personName="User";
+    String title;
     GoogleApiClient mGoogleApiClient;
     String TAG=getClass().getSimpleName();
     String personPhotoUrl;
@@ -64,6 +65,7 @@ public class HomeActivity extends AppCompatActivity
     private BroadcastReceiver mRegistrationBroadcastReceiver;
     AlertDialog.Builder alertDialogBuilder;
     AlertDialog alertDialog;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -221,62 +223,43 @@ public class HomeActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-        String title="";
-        int id = item.getItemId();
-        if (id == R.id.timeline) {
-            TimelineFragment timelineFragment=new TimelineFragment();
-            ft.replace(R.id.container,timelineFragment);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            ft.commit();
-            title="Timeline";
-        } else if (id == R.id.events) {
-            EventsFragment eventsFragment=new EventsFragment();
-            ft.replace(R.id.container,eventsFragment);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            ft.commit();
-            title="Events";
-        } else if (id == R.id.projects) {
-            ProjectFragment projectFragment=new ProjectFragment();
-            ft.replace(R.id.container,projectFragment);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            ft.commit();
-            title="Projects";
-        } else if (id == R.id.members) {
-            TabbedMemberFragment tabbedMemberFragment=new TabbedMemberFragment();
-            ft.replace(R.id.container, tabbedMemberFragment);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            ft.commit();
-            title="Members";
-        } else if (id == R.id.organiser) {
-            BoardFragment boardFragment=new BoardFragment();
-            //OrganiserFragment1 organiserFragment1 =new OrganiserFragment1();
-            ft.replace(R.id.container, boardFragment);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            ft.commit();
-            title="The Board";
-        } else if (id == R.id.about_us) {
-            AboutUsFragment aboutUsFragment=new AboutUsFragment();
-            ft.replace(R.id.container,aboutUsFragment);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            ft.commit();
-            title="About Us";
-        } else if (id == R.id.contact_us) {
-            ContactUsFragment contactUsFragment=new ContactUsFragment();
-            ft.replace(R.id.container,contactUsFragment);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            ft.commit();
-            title="Contact Us";
-        }
-        else if (id == R.id.faqs) {
-            FAQsFragment faqsFragment=new FAQsFragment();
-            ft.replace(R.id.container,faqsFragment);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            ft.commit();
-            title="FAQs";
-        }
+    public boolean onNavigationItemSelected(final MenuItem item) {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        title="";
+        id = item.getItemId();
+        drawer.closeDrawer(GravityCompat.START);
+        drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+
+                if (id == R.id.timeline) {
+                    replaceFragment(new TimelineFragment(),"Timeline");
+                } else if (id == R.id.events) {
+                    replaceFragment(new EventsFragment(),"Events");
+                } else if (id == R.id.projects) {
+                    replaceFragment(new ProjectFragment(),"Projects");
+                } else if (id == R.id.members) {
+                    replaceFragment(new TabbedMemberFragment(),"Members");
+                } else if (id == R.id.organiser) {
+                    replaceFragment(new BoardFragment(),"The Board");
+                } else if (id == R.id.about_us) {
+                    replaceFragment(new AboutUsFragment(),"About Us");
+                } else if (id == R.id.contact_us) {
+                    replaceFragment(new ContactUsFragment(),"Contact Us");
+                }
+                else if (id == R.id.faqs) {
+                    replaceFragment(new FAQsFragment(),"FAQs");
+                }
         /*else if (id == R.id.feedback) {
             FeedbackFragment feedbackFragment=new FeedbackFragment();
             ft.replace(R.id.container,feedbackFragment);
@@ -285,20 +268,25 @@ public class HomeActivity extends AppCompatActivity
             title="Feedback";
         }
         */
-        else if (id == R.id.sign_out) {
-            Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                    new ResultCallback<Status>() {
-                        @Override
-                        public void onResult(@NonNull Status status) {
-                        }
-                    }
-            );
-            Intent intent=new Intent(this,LoginActivity.class);
-            startActivity(intent);
+                else if (id == R.id.sign_out) {
+                    Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                            new ResultCallback<Status>() {
+                                @Override
+                                public void onResult(@NonNull Status status) {
+                                }
+                            }
+                    );
+                    Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
+                    startActivity(intent);
+                }
             }
-        getSupportActionBar().setTitle(title);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
+        // Handle navigation view item clicks here.
         return true;
     }
     @Override
@@ -331,6 +319,16 @@ public class HomeActivity extends AppCompatActivity
         mGoogleApiClient.stopAutoManage(this);
         mGoogleApiClient.disconnect();
     }
+
+    public void replaceFragment(Fragment fragment,String title)
+    {
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.container,fragment);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.commit();
+        getSupportActionBar().setTitle(title);
+    }
+
 
     @Override
     protected void onPostResume() {

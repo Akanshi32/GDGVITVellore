@@ -27,4 +27,7 @@ public class WelcomeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
+    //TODO: Check Shared preference error
+    //TODO: Rectify backend for members
+    //TODO: ADD data to backend
 }

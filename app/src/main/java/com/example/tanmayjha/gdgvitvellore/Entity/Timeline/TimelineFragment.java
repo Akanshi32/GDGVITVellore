@@ -113,3 +113,4 @@ public class TimelineFragment extends Fragment {
 //TODO: Nested Fragment not working Still not working :/
 //TODO: make real use of splash screen
 //TODO: Put share option when and where as required
+//TODO: Try different color for color primary primary and stuff. 500 for color primary 700 for dark and 300 for secondary
