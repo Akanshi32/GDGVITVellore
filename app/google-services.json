@@ -1,71 +1,33 @@
 {
   "project_info": {
-    "project_number": "296889493902",
-    "firebase_url": "https://gdg-vit-vellore-af543.firebaseio.com",
-    "project_id": "gdg-vit-vellore-af543",
-    "storage_bucket": "gdg-vit-vellore-af543.appspot.com"
+    "project_number": "719188862921",
+    "project_id": "firebase-gdg-vit-vellore"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:296889493902:android:a7e35e1f2e041848",
-        "android_client_info": {
-          "package_name": "com.example.tanmayjha.recyclerviewwithcardviewusingfirebase"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "296889493902-v2qvals8idopvu4uk5d0p3o8s3ca0lah.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.tanmayjha.recyclerviewwithcardviewusingfirebase",
-            "certificate_hash": "BDEAC0B5672323B4DEB57128EF3F5EAB88D67066"
-          }
-        },
-        {
-          "client_id": "296889493902-hbts7qm18dgpsumq5u63b6fg27krj8qt.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDzDJoEemCygDgv4criM0yqv4_4sKMLEOM"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "296889493902-hbts7qm18dgpsumq5u63b6fg27krj8qt.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:296889493902:android:ca08ddacc7a2a020",
+        "mobilesdk_app_id": "1:719188862921:android:ca08ddacc7a2a020",
         "android_client_info": {
           "package_name": "com.example.tanmayjha.gdgvitvellore"
         }
       },
       "oauth_client": [
         {
-          "client_id": "296889493902-hbts7qm18dgpsumq5u63b6fg27krj8qt.apps.googleusercontent.com",
+          "client_id": "719188862921-o1cfejspaq03mhfb7ghccotuudauhat8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tanmayjha.gdgvitvellore",
+            "certificate_hash": "BDEAC0B5672323B4DEB57128EF3F5EAB88D67066"
+          }
+        },
+        {
+          "client_id": "719188862921-n4ijpb3a9uarcue6rl0clj78g2s84cvf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDzDJoEemCygDgv4criM0yqv4_4sKMLEOM"
+          "current_key": "AIzaSyAywzP9mFyAHtH0LYOLvAeLTEf7WJ-Xv38"
         }
       ],
       "services": {
@@ -77,7 +39,7 @@
           "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 2
+          "status": 1
         }
       }
     }
