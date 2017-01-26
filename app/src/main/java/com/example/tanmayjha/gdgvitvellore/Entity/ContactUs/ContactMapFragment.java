@@ -67,6 +67,7 @@ public class ContactMapFragment extends Fragment implements View.OnClickListener
                 googleMap.animateCamera(yourLocation);
             }
         });
+
     }
 
     @Override
