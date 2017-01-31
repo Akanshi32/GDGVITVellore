@@ -1,6 +1,7 @@
 package com.example.tanmayjha.gdgvitvellore.Entity.Events;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -52,6 +53,13 @@ public class EventActivity extends AppCompatActivity {
         eventDateView=(TextView)findViewById(R.id.event_content_date);
         eventTimeView=(TextView)findViewById(R.id.event_content_time);
         eventVenueView=(TextView)findViewById(R.id.event_content_venue);
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Regular.ttf");
+
+        eventDescriptionView.setTypeface(custom_font);
+        eventDateView.setTypeface(custom_font);
+        eventTimeView.setTypeface(custom_font);
+        eventVenueView.setTypeface(custom_font);
 
         intent=getIntent();
         mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/events/"+intent.getIntExtra("position",0));

@@ -2,6 +2,7 @@ package com.example.tanmayjha.gdgvitvellore.Entity.ContactUs;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -38,7 +39,9 @@ public class ContactDetailsFragment extends Fragment implements View.OnClickList
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_contact_details_test, container, false);
+
     }
 
     @Override
@@ -62,6 +65,14 @@ public class ContactDetailsFragment extends Fragment implements View.OnClickList
         visitUsView.setOnClickListener(this);
         callUsView.setOnClickListener(this);
         mailUsView.setOnClickListener(this);
+
+
+        Typeface custom_font = Typeface.createFromAsset(getContext().getAssets(),"fonts/Montserrat-Regular.ttf");
+
+        content.setTypeface(custom_font);
+        visitUsText.setTypeface(custom_font);
+        callUsText.setTypeface(custom_font);
+        mailUsText.setTypeface(custom_font);
     }
 
     @Override

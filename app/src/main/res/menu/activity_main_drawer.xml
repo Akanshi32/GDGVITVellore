@@ -5,38 +5,38 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/timeline"
-            android:icon="@drawable/ic_home"
+            android:icon="@drawable/ic_date_events_black_24dp"
             android:title="Timeline" />
         <item
             android:id="@+id/events"
-            android:icon="@drawable/ic_events"
+            android:icon="@drawable/ic_timeline_black_24dp"
             android:title="Events" />
         <item
             android:id="@+id/projects"
-            android:icon="@drawable/ic_navbar_projects"
+            android:icon="@drawable/ic_project_black_24dp"
             android:title="Projects" />
         <item
             android:id="@+id/members"
-            android:icon="@drawable/ic_navbar_projects"
+            android:icon="@drawable/ic_members_black_24dp"
             android:title="Members" />
         <item
             android:id="@+id/organiser"
-            android:icon="@drawable/ic_navbar_sponsors"
+            android:icon="@drawable/ic_board_ind_black_24dp"
             android:title="The Board" />
     </group>
     <item android:title="Communicate">
         <menu>
             <item
                 android:id="@+id/about_us"
-                android:icon="@drawable/ic_info"
+                android:icon="@drawable/ic_info_black_24dp"
                 android:title="About Us" />
             <item
                 android:id="@+id/contact_us"
-                android:icon="@drawable/ic_contact"
+                android:icon="@drawable/ic_call_black_24dp"
                 android:title="Contact Us"/>
             <item
                 android:id="@+id/faqs"
-                android:icon="@drawable/ic_faqs"
+                android:icon="@drawable/ic_faq_black_24dp"
                 android:title="FAQs" />
         </menu>
     </item>
@@ -44,7 +44,7 @@
         <menu>
             <item
                 android:id="@+id/sign_out"
-                android:icon="@drawable/ic_log_out"
+                android:icon="@drawable/ic_signout_black_24dp"
                 android:title="Sign Out" />
             </menu>
     </item>

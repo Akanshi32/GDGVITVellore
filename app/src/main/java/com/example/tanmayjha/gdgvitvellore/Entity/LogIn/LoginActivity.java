@@ -2,6 +2,7 @@ package com.example.tanmayjha.gdgvitvellore.Entity.LogIn;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -45,6 +46,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         buttonSignIn.setOnClickListener(this);
         skipThis=(TextView)findViewById(R.id.skip_this);
         skipThis.setOnClickListener(this);
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Regular.ttf");
+
+        skipThis.setTypeface(custom_font);
         //Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();

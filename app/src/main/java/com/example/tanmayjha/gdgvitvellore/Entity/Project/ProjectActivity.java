@@ -1,6 +1,7 @@
 package com.example.tanmayjha.gdgvitvellore.Entity.Project;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -37,6 +38,13 @@ public class ProjectActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Regular.ttf");
+
+        projectDescriptionView.setTypeface(custom_font);
+
+        projectContributorView.setTypeface(custom_font);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

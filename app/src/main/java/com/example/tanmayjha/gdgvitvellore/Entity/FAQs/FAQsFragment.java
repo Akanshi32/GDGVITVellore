@@ -19,9 +19,7 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.firebase.ui.FirebaseRecyclerAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class FAQsFragment extends Fragment {
 
     Firebase mRef;

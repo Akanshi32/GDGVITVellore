@@ -2,6 +2,7 @@ package com.example.tanmayjha.gdgvitvellore.Entity.AboutUs;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -25,6 +26,8 @@ public class AboutUsFragment extends Fragment {
     EditText feedback;
     TextInputLayout inputFeedback;
 
+
+
     public AboutUsFragment() {
         // Required empty public constructor
     }
@@ -39,6 +42,11 @@ public class AboutUsFragment extends Fragment {
         spinnerOption=(Spinner)view.findViewById(R.id.spinner_option);
         feedback=(EditText)view.findViewById(R.id.feedback);
         inputFeedback=(TextInputLayout)view.findViewById(R.id.input_feedback);
+
+        Typeface custom_font = Typeface.createFromAsset(getContext().getAssets(),"fonts/Montserrat-Regular.ttf");
+
+        feedback.setTypeface(custom_font);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
