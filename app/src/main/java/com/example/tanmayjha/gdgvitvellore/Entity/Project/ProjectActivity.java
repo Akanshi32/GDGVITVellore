@@ -40,11 +40,11 @@ public class ProjectActivity extends AppCompatActivity {
         });
 
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Regular.ttf");
+        // Typeface custom_font = Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Regular.ttf");
 
-        projectDescriptionView.setTypeface(custom_font);
+        //projectDescriptionView.setTypeface(custom_font);
 
-        projectContributorView.setTypeface(custom_font);
+        //projectContributorView.setTypeface(custom_font);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

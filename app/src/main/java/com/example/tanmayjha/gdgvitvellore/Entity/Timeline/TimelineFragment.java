@@ -45,10 +45,12 @@ public class TimelineFragment extends Fragment {
     {
         super.onStart();
         View view=getView();
+
         mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/timeline");
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_timeline);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
         showProgressDialog();
         FirebaseRecyclerAdapter<TimelineModel,TimelineViewHolder> adapter=new FirebaseRecyclerAdapter<TimelineModel,TimelineViewHolder>(
                 TimelineModel.class,

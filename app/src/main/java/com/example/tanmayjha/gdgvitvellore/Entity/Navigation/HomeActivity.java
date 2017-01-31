@@ -112,6 +112,7 @@ public class HomeActivity extends AppCompatActivity
             }
 
         };
+
         Intent fromLogin=getIntent();
         personName=fromLogin.getStringExtra("personName");
         personPhotoUrl=fromLogin.getStringExtra("personPhotoUrl");
@@ -241,23 +242,31 @@ public class HomeActivity extends AppCompatActivity
 
             @Override
             public void onDrawerClosed(View drawerView) {
-
+                Fragment f =getSupportFragmentManager().findFragmentById(R.id.container);
                 if (id == R.id.timeline) {
+                    if(!(f instanceof TimelineFragment))
                     replaceFragment(new TimelineFragment(),"Timeline");
                 } else if (id == R.id.events) {
+                    if(!(f instanceof EventsFragment))
                     replaceFragment(new EventsFragment(),"Events");
                 } else if (id == R.id.projects) {
+                    if(!(f instanceof ProjectFragment))
                     replaceFragment(new ProjectFragment(),"Projects");
                 } else if (id == R.id.members) {
+                    if(!(f instanceof TabbedMemberFragment))
                     replaceFragment(new TabbedMemberFragment(),"Members");
                 } else if (id == R.id.organiser) {
+                    if(!(f instanceof BoardFragment))
                     replaceFragment(new BoardFragment(),"The Board");
                 } else if (id == R.id.about_us) {
+                    if(!(f instanceof AboutUsFragment))
                     replaceFragment(new AboutUsFragment(),"About Us");
                 } else if (id == R.id.contact_us) {
+                    if(!(f instanceof ContactUsFragment))
                     replaceFragment(new ContactUsFragment(),"Contact Us");
                 }
                 else if (id == R.id.faqs) {
+                    if(!(f instanceof FAQsFragment))
                     replaceFragment(new FAQsFragment(),"FAQs");
                 }
         /*else if (id == R.id.feedback) {
