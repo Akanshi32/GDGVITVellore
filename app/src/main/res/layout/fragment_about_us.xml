@@ -9,6 +9,7 @@
     android:layout_margin="2dp"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="5dp"
     tools:context=".Entity.AboutUs.AboutUsFragment"
     android:paddingBottom="20dp">
 
