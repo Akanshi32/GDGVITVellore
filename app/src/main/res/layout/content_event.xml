@@ -26,7 +26,8 @@
 
                 <TextView
                     style="@style/HeadingFont"
-                    android:text="Description" />
+                    android:text="Description"
+                    android:id="@+id/event_description"/>
 
                 <TextView
                     style="@style/BodyFont"
@@ -51,7 +52,8 @@
 
                 <TextView
                     style="@style/HeadingFont"
-                    android:text="Venue" />
+                    android:text="Venue"
+                    android:id="@+id/event_venue"/>
 
                 <TextView
                     style="@style/BodyFont"
@@ -77,6 +79,7 @@
                 <TextView
                     style="@style/HeadingFont"
                     android:text="Date"
+                    android:id="@+id/event_date"
                     />
 
                 <TextView
@@ -103,7 +106,8 @@
 
                 <TextView
                     style="@style/HeadingFont"
-                    android:text="Time" />
+                    android:text="Time"
+                    android:id="@+id/event_time"/>
 
                 <TextView
                     style="@style/BodyFont"

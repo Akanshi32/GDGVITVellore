@@ -3,6 +3,7 @@ package com.example.tanmayjha.gdgvitvellore.Entity.Events;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -32,7 +33,7 @@ public class EventsFragment extends Fragment {
     Firebase mRef;
     RecyclerView recyclerView;
     ProgressDialog mProgressDialog;
-
+    Typeface custom_font;
     public EventsFragment() {
         // Required empty public constructor
     }
@@ -51,6 +52,7 @@ public class EventsFragment extends Fragment {
         View view=getView();
         super.onStart();
         mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/events");
+        custom_font = Typeface.createFromAsset(getActivity().getAssets(),"fonts/Montserrat-Regular.ttf");
         recyclerView=(RecyclerView)view.findViewById(R.id.recycler_view_event);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -64,6 +66,7 @@ public class EventsFragment extends Fragment {
         ) {
             @Override
             protected void populateViewHolder(EventViewHolder eventViewHolder, EventModel eventModel, int i) {
+                eventViewHolder.eventName.setTypeface(custom_font);
                 eventViewHolder.eventName.setText(eventModel.getEventName());
                 Glide.with(getActivity()).load(eventModel.getEventpic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(EventViewHolder.eventpic);
             }

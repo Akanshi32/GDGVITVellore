@@ -25,7 +25,7 @@ public class EventActivity extends AppCompatActivity {
     Firebase mRef;
     Intent intent;
     String eventName,eventDescription,eventDate,eventTime,eventVenue,eventPic;
-    TextView eventDescriptionView,eventDateView,eventTimeView,eventVenueView;
+    TextView eventDescriptionView,eventDateView,eventTimeView,eventVenueView,eventDateHeading,eventTimeHeading,eventVenueHeading,eventDescriptionHeading;
     CollapsingToolbarLayout collapsingToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +54,23 @@ public class EventActivity extends AppCompatActivity {
         eventTimeView=(TextView)findViewById(R.id.event_content_time);
         eventVenueView=(TextView)findViewById(R.id.event_content_venue);
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Regular.ttf");
+        eventDateHeading=(TextView)findViewById(R.id.event_date);
+        eventDescriptionHeading=(TextView)findViewById(R.id.event_description);
+        eventTimeHeading=(TextView)findViewById(R.id.event_time);
+        eventVenueHeading=(TextView)findViewById(R.id.event_venue);
 
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Regular.ttf");
         eventDescriptionView.setTypeface(custom_font);
         eventDateView.setTypeface(custom_font);
         eventTimeView.setTypeface(custom_font);
         eventVenueView.setTypeface(custom_font);
+
+        eventDateHeading.setTypeface(custom_font);
+        eventDescriptionHeading.setTypeface(custom_font);
+        eventTimeHeading.setTypeface(custom_font);
+        eventVenueHeading.setTypeface(custom_font);
+
 
         intent=getIntent();
         mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/events/"+intent.getIntExtra("position",0));

@@ -2,6 +2,7 @@ package com.example.tanmayjha.gdgvitvellore.Entity.BoardMember;
 
 
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -33,6 +34,7 @@ public class BoardFragment extends Fragment {
     Firebase mRef;
     RecyclerView mRecyclerView;
     ProgressDialog mProgressDialog;
+    Typeface custom_font;
 
     public BoardFragment() {
         // Required empty public constructor
@@ -55,6 +57,7 @@ public class BoardFragment extends Fragment {
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_board);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        custom_font = Typeface.createFromAsset(getActivity().getAssets(),"fonts/Montserrat-Regular.ttf");
         showProgressDialog();
         FirebaseRecyclerAdapter<BoardModel,BoardViewHolder> adapter=new FirebaseRecyclerAdapter<BoardModel,BoardViewHolder>(
                 BoardModel.class,
@@ -64,6 +67,8 @@ public class BoardFragment extends Fragment {
         ) {
             @Override
             protected void populateViewHolder(BoardFragment.BoardViewHolder boardViewHolder,BoardModel boardModel, int i) {
+                boardViewHolder.name.setTypeface(custom_font);
+                boardViewHolder.position.setTypeface(custom_font);
                 boardViewHolder.name.setText(boardModel.getName());
                 boardViewHolder.position.setText(boardModel.getPosition());
                 Glide.with(getActivity()).load(boardModel.getDisplay_pic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(boardViewHolder.display_pic);

@@ -2,6 +2,7 @@ package com.example.tanmayjha.gdgvitvellore.Entity.FAQs;
 
 
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,6 +26,7 @@ public class FAQsFragment extends Fragment {
     Firebase mRef;
     RecyclerView mRecyclerView;
     ProgressDialog mProgressDialog;
+    Typeface custom_font;
 
     public FAQsFragment() {
         // Required empty public constructor
@@ -47,6 +49,7 @@ public class FAQsFragment extends Fragment {
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_faq);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        custom_font = Typeface.createFromAsset(getActivity().getAssets(),"fonts/Montserrat-Regular.ttf");
         showProgressDialog();
         FirebaseRecyclerAdapter<FaqsModel,FaqsViewHolder> adapter=new FirebaseRecyclerAdapter<FaqsModel, FaqsViewHolder>(
                 FaqsModel.class,
@@ -56,6 +59,8 @@ public class FAQsFragment extends Fragment {
         ) {
             @Override
             protected void populateViewHolder(FaqsViewHolder faqsViewHolder, FaqsModel faqsModel, int i) {
+                faqsViewHolder.question.setTypeface(custom_font);
+                faqsViewHolder.answer.setTypeface(custom_font);
                 faqsViewHolder.question.setText(faqsModel.getQuestion());
                 faqsViewHolder.answer.setText(faqsModel.getAnswer());
             }

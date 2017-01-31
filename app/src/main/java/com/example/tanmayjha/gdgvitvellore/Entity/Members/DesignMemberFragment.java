@@ -2,6 +2,7 @@ package com.example.tanmayjha.gdgvitvellore.Entity.Members;
 
 
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -33,6 +34,7 @@ public class DesignMemberFragment extends Fragment {
     RecyclerView mRecyclerView;
     Firebase mRef;
     ProgressDialog mProgressDialog;
+    Typeface custom_font;
 
     public DesignMemberFragment() {
         // Required empty public constructor
@@ -52,6 +54,7 @@ public class DesignMemberFragment extends Fragment {
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_design_member);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        custom_font = Typeface.createFromAsset(getActivity().getAssets(),"fonts/Montserrat-Regular.ttf");
         showProgressDialog();
         FirebaseRecyclerAdapter<MemberModel,DesignMemberFragment.MembersViewHolder> adapter=new FirebaseRecyclerAdapter<MemberModel,DesignMemberFragment.MembersViewHolder>(
                 MemberModel.class,
@@ -61,6 +64,9 @@ public class DesignMemberFragment extends Fragment {
         ) {
             @Override
             protected void populateViewHolder(DesignMemberFragment.MembersViewHolder membersViewHolder, MemberModel memberModel, int i) {
+                membersViewHolder.name.setTypeface(custom_font);
+                membersViewHolder.work.setTypeface(custom_font);
+                membersViewHolder.githubid.setTypeface(custom_font);
                 membersViewHolder.name.setText(memberModel.getName());
                 membersViewHolder.work.setText(memberModel.getWork());
                 membersViewHolder.githubid.setText(memberModel.getGithubid());

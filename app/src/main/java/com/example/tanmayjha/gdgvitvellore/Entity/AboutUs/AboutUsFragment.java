@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratEditText;
 import com.example.tanmayjha.gdgvitvellore.R;
 
 /**
@@ -23,7 +24,7 @@ public class AboutUsFragment extends Fragment {
 
     Button button;
     Spinner spinnerOption;
-    EditText feedback;
+    MontserratEditText feedback;
     TextInputLayout inputFeedback;
 
 
@@ -40,12 +41,8 @@ public class AboutUsFragment extends Fragment {
         View view=getView();
         button=(Button)view.findViewById(R.id.submit);
         spinnerOption=(Spinner)view.findViewById(R.id.spinner_option);
-        feedback=(EditText)view.findViewById(R.id.feedback);
+        feedback=(MontserratEditText) view.findViewById(R.id.feedback);
         inputFeedback=(TextInputLayout)view.findViewById(R.id.input_feedback);
-
-        Typeface custom_font = Typeface.createFromAsset(getContext().getAssets(),"fonts/Montserrat-Regular.ttf");
-
-        feedback.setTypeface(custom_font);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

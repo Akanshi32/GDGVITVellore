@@ -2,6 +2,7 @@ package com.example.tanmayjha.gdgvitvellore.Entity.Timeline;
 
 
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -31,6 +32,7 @@ public class TimelineFragment extends Fragment {
     Firebase mRef;
     RecyclerView mRecyclerView;
     ProgressDialog mProgressDialog;
+    Typeface custom_font;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,12 +47,11 @@ public class TimelineFragment extends Fragment {
     {
         super.onStart();
         View view=getView();
-
+        custom_font = Typeface.createFromAsset(getActivity().getAssets(),"fonts/Montserrat-Regular.ttf");
         mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/timeline");
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_timeline);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
         showProgressDialog();
         FirebaseRecyclerAdapter<TimelineModel,TimelineViewHolder> adapter=new FirebaseRecyclerAdapter<TimelineModel,TimelineViewHolder>(
                 TimelineModel.class,
@@ -60,6 +61,10 @@ public class TimelineFragment extends Fragment {
         ) {
             @Override
             protected void populateViewHolder(TimelineViewHolder timelineViewHolder, TimelineModel timelineModel, int i) {
+                timelineViewHolder.timelineEventDate.setTypeface(custom_font);
+                timelineViewHolder.timelineEventName.setTypeface(custom_font);
+                timelineViewHolder.timelineEventTime.setTypeface(custom_font);
+                timelineViewHolder.timelineEventVenue.setTypeface(custom_font);
                 timelineViewHolder.timelineEventName.setText(timelineModel.getTimelineEventName());
                 timelineViewHolder.timelineEventVenue.setText(timelineModel.getTimelineEventVenue());
                 timelineViewHolder.timelineEventDate.setText(timelineModel.getTimelineEventDate());
@@ -84,6 +89,7 @@ public class TimelineFragment extends Fragment {
     public static class TimelineViewHolder extends RecyclerView.ViewHolder{
         TextView timelineEventName,timelineEventDate,timelineEventVenue,timelineEventTime;
         static CircleImageView timelineEventPic;
+
 
         public TimelineViewHolder(View v) {
             super(v);

@@ -24,7 +24,8 @@ public class ProjectActivity extends AppCompatActivity {
     Intent intent;
     CollapsingToolbarLayout collapsingToolbar;
     String projectName,projectContributor,projectPic,projectDescription;
-    TextView projectDescriptionView,projectContributorView;
+    TextView projectDescriptionView,projectContributorView,projectDescriptionHeading,projectContributorHeading;
+    Typeface custom_font;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,13 +39,7 @@ public class ProjectActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-
-        // Typeface custom_font = Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Regular.ttf");
-
-        //projectDescriptionView.setTypeface(custom_font);
-
-        //projectContributorView.setTypeface(custom_font);
+        custom_font = Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Regular.ttf");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +52,12 @@ public class ProjectActivity extends AppCompatActivity {
         collapsingToolbar=(CollapsingToolbarLayout)findViewById(R.id.toolbar_layout);
         projectDescriptionView=(TextView)findViewById(R.id.project_content_description);
         projectContributorView=(TextView)findViewById(R.id.project_content_contributor);
+        projectDescriptionHeading=(TextView)findViewById(R.id.project_description);
+        projectContributorHeading=(TextView)findViewById(R.id.project_contributor);
+        projectContributorHeading.setTypeface(custom_font);
+        projectDescriptionHeading.setTypeface(custom_font);
+        projectDescriptionView.setTypeface(custom_font);
+        projectContributorView.setTypeface(custom_font);
         intent=getIntent();
         mRef=new Firebase("https://gdg-vit-vellore-af543.firebaseio.com/project/"+intent.getIntExtra("position",0));
         mRef.addValueEventListener(new ValueEventListener() {

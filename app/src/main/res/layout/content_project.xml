@@ -25,7 +25,8 @@
 
                 <TextView
                     style="@style/HeadingFont"
-                    android:text="Project Description" />
+                    android:text="Project Description"
+                    android:id="@+id/project_description"/>
 
                 <TextView
                     style="@style/BodyFont"
@@ -50,7 +51,8 @@
 
                 <TextView
                     style="@style/HeadingFont"
-                    android:text="Project Contributor" />
+                    android:text="Project Contributor"
+                    android:id="@+id/project_contributor"/>
 
                 <TextView
                     style="@style/BodyFont"
