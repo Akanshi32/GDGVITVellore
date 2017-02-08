@@ -77,7 +77,7 @@ public class AboutUsFragment extends Fragment {
                     String subject=String.valueOf(spinnerOption.getSelectedItem());
                     Intent intentEmail = new Intent(Intent.ACTION_SEND);
                     String message=feedback.getText().toString();
-                    intentEmail.putExtra(Intent.EXTRA_EMAIL,new String[]{"tanmay.jha1@gmail.com"});
+                    intentEmail.putExtra(Intent.EXTRA_EMAIL,new String[]{"gdgvitvellore@gmail.com"});
                     intentEmail.putExtra(Intent.EXTRA_SUBJECT, subject);
                     intentEmail.putExtra(Intent.EXTRA_TEXT, message);
                     intentEmail.setType("message/rfc822");

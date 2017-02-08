@@ -71,7 +71,7 @@ public class BoardFragment extends Fragment {
                 boardViewHolder.position.setTypeface(custom_font);
                 boardViewHolder.name.setText(boardModel.getName());
                 boardViewHolder.position.setText(boardModel.getPosition());
-                Glide.with(getActivity()).load(boardModel.getDisplay_pic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(boardViewHolder.display_pic);
+                Glide.with(getActivity()).load(boardModel.getDisplay_pic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.image_not_found).into(boardViewHolder.display_pic);
             }
         };
         mRecyclerView.setAdapter(adapter);

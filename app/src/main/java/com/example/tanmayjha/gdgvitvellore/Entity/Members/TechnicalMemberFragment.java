@@ -73,10 +73,7 @@ public class TechnicalMemberFragment extends Fragment {
                 membersViewHolder.work.setText(memberModel.getWork());
                 membersViewHolder.githubid.setText(memberModel.getGithubid());
                 Log.v("From Techincal Fragment",memberModel.getProfile_pic());
-                Glide.with(getActivity()).load(memberModel.getProfile_pic()).
-                        thumbnail(0.5f).
-                        diskCacheStrategy(DiskCacheStrategy.ALL).
-                        into(MembersViewHolder.profile_pic);
+                Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.4f).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.image_not_found).into(MembersViewHolder.profile_pic);
             }
         };
         mRecyclerView.setAdapter(adapter);

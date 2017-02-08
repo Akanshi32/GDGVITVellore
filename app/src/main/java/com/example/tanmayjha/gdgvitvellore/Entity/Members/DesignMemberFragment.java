@@ -70,7 +70,7 @@ public class DesignMemberFragment extends Fragment {
                 membersViewHolder.name.setText(memberModel.getName());
                 membersViewHolder.work.setText(memberModel.getWork());
                 membersViewHolder.githubid.setText(memberModel.getGithubid());
-                Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(DesignMemberFragment.MembersViewHolder.profile_pic);
+                Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.4f).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.image_not_found).into(DesignMemberFragment.MembersViewHolder.profile_pic);
             }
         };
         mRecyclerView.setAdapter(adapter);

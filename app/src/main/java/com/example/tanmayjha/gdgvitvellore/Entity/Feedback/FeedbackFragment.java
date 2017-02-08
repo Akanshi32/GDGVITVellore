@@ -51,7 +51,7 @@ public class FeedbackFragment extends Fragment {
                 String message=feedback.getText().toString();
                 //TODO: ADD GDG OFFICIAL ID
 
-                email.putExtra(Intent.EXTRA_EMAIL,new String[]{"tanmay.jha1@gmail.com"});
+                email.putExtra(Intent.EXTRA_EMAIL,new String[]{"gdgvitvellore@gmail.com"});
                 email.putExtra(Intent.EXTRA_SUBJECT, subject);
                 email.putExtra(Intent.EXTRA_TEXT, message);
                 //need this to prompts email client only

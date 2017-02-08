@@ -75,9 +75,10 @@ public class ManagementMemberFragment extends Fragment {
                 membersViewHolder.work.setText(memberModel.getWork());
                 membersViewHolder.githubid.setText(memberModel.getGithubid());
                 Log.v("From"+"management fragment",memberModel.getProfile_pic());
-                Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.5f).into(ManagementMemberFragment.MembersViewHolder.profile_pic);
+                Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.4f).error(R.drawable.image_not_found).into(ManagementMemberFragment.MembersViewHolder.profile_pic);
             }
         };
+
         mRecyclerView.setAdapter(adapter);
         mRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
