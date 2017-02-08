@@ -73,7 +73,8 @@ public class TechnicalMemberFragment extends Fragment {
                 membersViewHolder.work.setText(memberModel.getWork());
                 membersViewHolder.githubid.setText(memberModel.getGithubid());
                 Log.v("From Techincal Fragment",memberModel.getProfile_pic());
-                Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.4f).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.image_not_found).into(MembersViewHolder.profile_pic);
+                TechnicalMemberFragment.MembersViewHolder.profile_pic.setImageDrawable(getResources().getDrawable(R.drawable.user_default));
+                //Glide.with(getActivity()).load(memberModel.getProfile_pic()).thumbnail(0.4f).diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.image_not_found).into(MembersViewHolder.profile_pic);
             }
         };
         mRecyclerView.setAdapter(adapter);
