@@ -190,7 +190,7 @@
             <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Designer: Tanmay Jha\nDeveloper: Tanmay Jha\nBackend: Tanmay Jha xD :p "
+                android:text="Designer:   Tanmay Jha\n                    Akanshi  Srivastava\n                    Shuvam Ghosh\nDeveloper: Tanmay Jha\nBackend:    Tanmay Jha"
                 android:layout_gravity="left"
                 android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif"
