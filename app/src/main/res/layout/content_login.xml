@@ -8,7 +8,7 @@
     android:background="#fff"
     android:gravity="center"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Entity.LogIn.LoginActivity"
+    tools:context="com.gdgvitvellore.gdgvitvellore.Entity.LogIn.LoginActivity"
     tools:showIn="@layout/activity_login"
     android:orientation="vertical">
     <ImageView

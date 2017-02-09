@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tanmayjha.gdgvitvellore">
+    package="com.gdgvitvellore.gdgvitvellore">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".Entity.Firebase.GDGVITVellore2"
+        android:name="com.gdgvitvellore.gdgvitvellore.Entity.Firebase.GDGVITVellore2"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,13 +24,13 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Entity.Navigation.HomeActivity"
+            android:name="com.gdgvitvellore.gdgvitvellore.Entity.Navigation.HomeActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
             </activity>
         <activity
-            android:name=".Entity.LogIn.LoginActivity"
+            android:name="com.gdgvitvellore.gdgvitvellore.Entity.LogIn.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
@@ -38,7 +38,7 @@
         </activity>
 
         <activity
-            android:name=".Entity.SplashScreen.SplashScreenActivity"
+            android:name="com.gdgvitvellore.gdgvitvellore.Entity.SplashScreen.SplashScreenActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -49,37 +49,37 @@
         </activity>
 
         <activity
-            android:name=".Entity.ContactUs.GdgWebViewActivity"
+            android:name="com.gdgvitvellore.gdgvitvellore.Entity.ContactUs.GdgWebViewActivity"
             android:label="GDG VIT Vellore"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"></activity>
 
-        <activity android:name=".Entity.IntroSlider.IntroSliderActivity"
+        <activity android:name="com.gdgvitvellore.gdgvitvellore.Entity.IntroSlider.IntroSliderActivity"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".Entity.Events.EventActivity"
+            android:name="com.gdgvitvellore.gdgvitvellore.Entity.Events.EventActivity"
             android:label="@string/title_activity_event"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".Entity.Project.ProjectActivity"
+            android:name="com.gdgvitvellore.gdgvitvellore.Entity.Project.ProjectActivity"
             android:label="@string/title_activity_project"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".Entity.Notification.Services.NotificationActivity"
+        <activity android:name="com.gdgvitvellore.gdgvitvellore.Entity.Notification.Services.NotificationActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <!-- Firebase Notifications -->
-        <service android:name=".Entity.Notification.Services.Services.MyFirebaseMessagingService">
+        <service android:name="com.gdgvitvellore.gdgvitvellore.Entity.Notification.Services.Services.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <service android:name=".Entity.Notification.Services.Services.MyFirebaseInstanceIDService">
+        <service android:name="com.gdgvitvellore.gdgvitvellore.Entity.Notification.Services.Services.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>

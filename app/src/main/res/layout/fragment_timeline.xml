@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:padding="3dp"
     android:layout_height="match_parent"
-    tools:context=".Entity.Timeline.TimelineFragment"
+    tools:context="com.gdgvitvellore.gdgvitvellore.Entity.Timeline.TimelineFragment"
     android:orientation="vertical">
 
     <FrameLayout

@@ -26,7 +26,7 @@
         android:layout_marginTop="20dp"
         android:paddingLeft="@dimen/desc_padding"
         android:paddingRight="@dimen/desc_padding"
-        android:text="Contact us for project on webdevelopment, UI/UX, android, image processing and machine learning"
+        android:text="Contact us for assistance on web development, UI/UX, android, AI, SEO, SEM"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="@dimen/slide_desc" />

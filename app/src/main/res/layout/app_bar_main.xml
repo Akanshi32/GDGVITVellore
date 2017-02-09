@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="#FFFFFF"
-    tools:context=".Entity.Navigation.HomeActivity">
+    tools:context="com.gdgvitvellore.gdgvitvellore.Entity.Navigation.HomeActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

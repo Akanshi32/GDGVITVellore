@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#E0E0E0"
     android:orientation="vertical"
-    tools:context=".Entity.ContactUs.ContactUsFragment">
+    tools:context="com.gdgvitvellore.gdgvitvellore.Entity.ContactUs.ContactUsFragment">
 
     <android.support.design.widget.TabLayout
         android:layout_marginTop="16dp"

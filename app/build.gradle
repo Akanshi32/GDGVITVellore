@@ -18,7 +18,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.tanmayjha.gdgvitvellore"
+        applicationId "com.gdgvitvellore.gdgvitvellore"
         minSdkVersion 21
         targetSdkVersion 24
         versionCode 1

@@ -10,7 +10,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="5dp"
-    tools:context=".Entity.AboutUs.AboutUsFragment"
+    tools:context="com.gdgvitvellore.gdgvitvellore.Entity.AboutUs.AboutUsFragment"
     android:paddingBottom="20dp">
 
     <ImageView
@@ -34,7 +34,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:paddingLeft="5dp">
-                <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+                <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ABOUT US"
@@ -44,7 +44,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/colorPrimary"
                     android:textAlignment="center"/>
-                <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+                <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="GDG VIT Vellore is a non-profit developers group to learn share and know more about Google technologies.Our events are open to newbies,developers,managers and organizations who are interested in Google technologies or use them as a part of their projects"
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="5dp">
-            <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+            <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary" />
-            <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+            <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tech Talks"
@@ -92,7 +92,7 @@
                 android:textStyle="bold"
                 android:textColor="#1E989B"
                 android:layout_marginTop="5dp" />
-            <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+            <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Google talks are a grassroots-style series of presentation given by various technical experts spanning a wide spectrum of topics in technology and related areas."
@@ -100,7 +100,7 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:textColor="#6D6D6D"/>
-            <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+            <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
@@ -111,16 +111,15 @@
                 android:textStyle="bold"
                 android:textColor="#1E989B"
                 android:layout_marginTop="5dp" />
-            <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+            <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="GDG Dev Fests are large scale, community-run events that offer speaker sessions across multiple product areas, hackathons, code labs and many more."
                 android:fontFamily="sans-serif"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:textColor="#6D6D6D"/>
-            <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+            <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Code School"
@@ -131,7 +130,7 @@
                 android:textStyle="bold"
                 android:textColor="#1E989B"
                 android:layout_marginTop="5dp" />
-            <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+            <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Google code school teaches web technologies in the comfort of your browser through video lessons, coding challenges and screencasts."
@@ -139,7 +138,7 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:textColor="#6D6D6D"/>
-            <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+            <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Beta Testing"
@@ -150,7 +149,7 @@
                 android:textStyle="bold"
                 android:textColor="#1E989B"
                 android:layout_marginTop="5dp" />
-            <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+            <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -159,7 +158,7 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:textColor="#6D6D6D">
-            </com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView>
+            </com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
@@ -176,7 +175,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingLeft="5dp">
-            <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+            <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="CREDITS"
@@ -187,7 +186,7 @@
                 android:textColor="@color/colorPrimary"
                 android:textAlignment="center"
                 android:layout_marginTop="0dp" />
-            <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+            <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Designer:   Tanmay Jha\n                    Akanshi  Srivastava\n                    Shuvam Ghosh\nDeveloper: Tanmay Jha\nBackend:    Tanmay Jha"
@@ -202,7 +201,7 @@
     </android.support.v7.widget.CardView>
 
 
-    <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratTextView
+    <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Suggestions"
@@ -228,7 +227,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal">
-        <com.example.tanmayjha.gdgvitvellore.Control.Font.MontserratEditText
+        <com.gdgvitvellore.gdgvitvellore.Control.Font.MontserratEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/feedback"
